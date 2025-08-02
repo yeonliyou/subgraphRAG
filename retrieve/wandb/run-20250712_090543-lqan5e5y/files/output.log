@@ -1,0 +1,27 @@
+100%|███████████████████████████████████████████████████████████████████████████████████████████████| 2826/2826 [00:00<00:00, 20207.28it/s]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 246/246 [00:00<00:00, 21787.21it/s]
+ 30%|█████████████████████████████▉                                                                      | 70/234 [00:00<00:00, 193.88it/s]
+# skipped samples: 118
+# relevant triples | median: 4 | mean: 23 | max: 919
+# skipped samples: 12
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 234/234 [00:01<00:00, 210.28it/s]
+
+
+
+ 47%|█████████████████████████████████████████████▊                                                   | 1280/2708 [00:08<00:09, 155.22it/s]
+Traceback (most recent call last):
+  File "/home/dongcheon/SubgraphRAG/retrieve/train.py", line 168, in <module>
+    main(args)
+  File "/home/dongcheon/SubgraphRAG/retrieve/train.py", line 150, in main
+    train_log_dict = train_epoch(device, train_loader, model, optimizer)
+  File "/home/dongcheon/SubgraphRAG/retrieve/train.py", line 88, in train_epoch
+    loss = loss.item()
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/dongcheon/SubgraphRAG/retrieve/train.py", line 168, in <module>
+    main(args)
+  File "/home/dongcheon/SubgraphRAG/retrieve/train.py", line 150, in main
+    train_log_dict = train_epoch(device, train_loader, model, optimizer)
+  File "/home/dongcheon/SubgraphRAG/retrieve/train.py", line 88, in train_epoch
+    loss = loss.item()
+KeyboardInterrupt

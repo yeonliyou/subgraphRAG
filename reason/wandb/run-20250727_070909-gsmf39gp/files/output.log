@@ -1,0 +1,54 @@
+WARNING 07-27 07:09:10 arg_utils.py:839] Chunked prefill is enabled by default for models with max_model_len > 32K. Currently, chunked prefill might not work with some features or models. If you encounter any issues, please disable chunked prefill by setting --enable-chunked-prefill=False.
+INFO 07-27 07:09:10 config.py:911] Chunked prefill is enabled with max_num_batched_tokens=512.
+INFO 07-27 07:09:10 llm_engine.py:184] Initializing an LLM engine (v0.5.5) with config: model='meta-llama/Meta-Llama-3.1-8B-Instruct', speculative_config=None, tokenizer='meta-llama/Meta-Llama-3.1-8B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, rope_scaling=None, rope_theta=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=131072, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, quantization_param_path=None, device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='outlines'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=meta-llama/Meta-Llama-3.1-8B-Instruct, use_v2_block_manager=False, enable_prefix_caching=False)
+INFO 07-27 07:09:13 model_runner.py:879] Starting to load model meta-llama/Meta-Llama-3.1-8B-Instruct...
+INFO 07-27 07:09:14 weight_utils.py:236] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:00<00:00,  4.55it/s]
+Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:01<00:01,  1.55it/s]
+Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:02<00:00,  1.20it/s]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:03<00:00,  1.08it/s]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:03<00:00,  1.22it/s]
+INFO 07-27 07:09:18 model_runner.py:890] Loading model weights took 14.9888 GB
+INFO 07-27 07:09:18 gpu_executor.py:121] # GPU blocks: 13416, # CPU blocks: 2048
+INFO 07-27 07:09:20 model_runner.py:1181] Capturing the model for CUDA graphs. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI.
+INFO 07-27 07:09:20 model_runner.py:1185] CUDA graphs can take additional 1~3 GiB memory per GPU. If you are running out of memory, consider decreasing `gpu_memory_utilization` or enforcing eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 07-27 07:09:34 model_runner.py:1300] Graph capturing finished in 14 secs.
+Loading subgraphs...
+
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/main.py", line 164, in <module>
+[rank0]:     main()
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/main.py", line 140, in main
+[rank0]:     data = get_data(dataset_name, pred_file_path, score_dict_path, split, prompt_mode)
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/preprocess/prepare_data.py", line 115, in get_data
+[rank0]:     subgraphs = get_subgraphs(dataset_name, split)
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/preprocess/prepare_data.py", line 13, in get_subgraphs
+[rank0]:     return load_dataset(input_file, split=split)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/datasets/load.py", line 2062, in load_dataset
+[rank0]:     builder_instance = load_dataset_builder(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/datasets/load.py", line 1782, in load_dataset_builder
+[rank0]:     dataset_module = dataset_module_factory(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/datasets/load.py", line 1652, in dataset_module_factory
+[rank0]:     raise e1 from None
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/datasets/load.py", line 1578, in dataset_module_factory
+[rank0]:     raise DatasetNotFoundError(f"Dataset '{path}' doesn't exist on the Hub or cannot be accessed.") from e
+[rank0]: datasets.exceptions.DatasetNotFoundError: Dataset 'rmanluo/RoG-metaqa-3hop' doesn't exist on the Hub or cannot be accessed.
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/main.py", line 164, in <module>
+[rank0]:     main()
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/main.py", line 140, in main
+[rank0]:     data = get_data(dataset_name, pred_file_path, score_dict_path, split, prompt_mode)
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/preprocess/prepare_data.py", line 115, in get_data
+[rank0]:     subgraphs = get_subgraphs(dataset_name, split)
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/preprocess/prepare_data.py", line 13, in get_subgraphs
+[rank0]:     return load_dataset(input_file, split=split)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/datasets/load.py", line 2062, in load_dataset
+[rank0]:     builder_instance = load_dataset_builder(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/datasets/load.py", line 1782, in load_dataset_builder
+[rank0]:     dataset_module = dataset_module_factory(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/datasets/load.py", line 1652, in dataset_module_factory
+[rank0]:     raise e1 from None
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/datasets/load.py", line 1578, in dataset_module_factory
+[rank0]:     raise DatasetNotFoundError(f"Dataset '{path}' doesn't exist on the Hub or cannot be accessed.") from e
+[rank0]: datasets.exceptions.DatasetNotFoundError: Dataset 'rmanluo/RoG-metaqa-3hop' doesn't exist on the Hub or cannot be accessed.

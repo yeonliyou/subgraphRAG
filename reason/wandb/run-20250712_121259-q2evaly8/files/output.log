@@ -1,0 +1,66 @@
+WARNING 07-12 12:13:01 arg_utils.py:839] Chunked prefill is enabled by default for models with max_model_len > 32K. Currently, chunked prefill might not work with some features or models. If you encounter any issues, please disable chunked prefill by setting --enable-chunked-prefill=False.
+INFO 07-12 12:13:01 config.py:911] Chunked prefill is enabled with max_num_batched_tokens=512.
+INFO 07-12 12:13:01 llm_engine.py:184] Initializing an LLM engine (v0.5.5) with config: model='meta-llama/Meta-Llama-3.1-8B-Instruct', speculative_config=None, tokenizer='meta-llama/Meta-Llama-3.1-8B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, rope_scaling=None, rope_theta=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=131072, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, quantization_param_path=None, device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='outlines'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=meta-llama/Meta-Llama-3.1-8B-Instruct, use_v2_block_manager=False, enable_prefix_caching=False)
+INFO 07-12 12:13:03 model_runner.py:879] Starting to load model meta-llama/Meta-Llama-3.1-8B-Instruct...
+INFO 07-12 12:13:04 weight_utils.py:236] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:00<00:00,  5.91it/s]
+Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:00<00:01,  1.98it/s]
+Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:01<00:00,  1.56it/s]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:02<00:00,  1.47it/s]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:02<00:00,  1.63it/s]
+INFO 07-12 12:13:08 model_runner.py:890] Loading model weights took 14.9888 GB
+INFO 07-12 12:13:08 gpu_executor.py:121] # GPU blocks: 13416, # CPU blocks: 2048
+INFO 07-12 12:13:09 model_runner.py:1181] Capturing the model for CUDA graphs. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI.
+INFO 07-12 12:13:09 model_runner.py:1185] CUDA graphs can take additional 1~3 GiB memory per GPU. If you are running out of memory, consider decreasing `gpu_memory_utilization` or enforcing eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 07-12 12:13:20 model_runner.py:1300] Graph capturing finished in 11 secs.
+Loading subgraphs...
+Adding subgraphs to data...
+
+100%|██████████████████████████████████████████████████████████████████| 1628/1628 [01:18<00:00, 20.81it/s]
+Adding good triplets from ROG...
+100%|███████████████████████████████████████████████████████████████| 1628/1628 [00:00<00:00, 23810.17it/s]
+Adding scored triplets...
+100%|█████████████████████████████████████████████████████████████| 1628/1628 [00:00<00:00, 1029602.97it/s]
+Triplets not found for 0 questions
+Generating prompts...
+Starting inference...
+100%|████████████████████████████████████████████████████████████████| 1628/1628 [1:43:45<00:00,  3.82s/it]
+==================================================
+==================================================
+Evaluating on subset: True
+Results:
+Loading subgraphs...
+Adding subgraphs to data...
+100%|██████████████████████████████████████████████████████████████████| 1628/1628 [01:18<00:00, 20.76it/s]
+Adding good triplets from ROG...
+100%|███████████████████████████████████████████████████████████████| 1628/1628 [00:00<00:00, 23736.50it/s]
+Adding scored triplets...
+100%|██████████████████████████████████████████████████████████████| 1628/1628 [00:00<00:00, 884154.72it/s]
+Triplets not found for 0 questions
+1628it [00:02, 637.27it/s] 
+Hit@1: 83.13021167415009, Macro F1: 71.64728726603495, Macro Precision: 79.40734326441, Macro Recall: 73.13859874641487, Exact Match: 50.160359204618345, Totally Wrong: 12.379730596536241, Hal Score: 60.0
+Micro F1: 0.4633967789165446, Micro precision: 0.7576949384404925, Micro Recall: 0.3337601687255197
+Total number of samples: 1559, no answer samples: 30, ratio: 0.01924310455420141
+Hit: 87.74855676715843
+==================================================
+==================================================
+==================================================
+==================================================
+Evaluating on subset: False
+Results:
+Loading subgraphs...
+Adding subgraphs to data...
+100%|██████████████████████████████████████████████████████████████████| 1628/1628 [01:17<00:00, 20.95it/s]
+Adding good triplets from ROG...
+100%|███████████████████████████████████████████████████████████████| 1628/1628 [00:00<00:00, 23467.38it/s]
+Adding scored triplets...
+100%|██████████████████████████████████████████████████████████████| 1628/1628 [00:00<00:00, 843315.66it/s]
+Triplets not found for 0 questions
+1628it [00:04, 383.00it/s]
+Hit@1: 81.32678132678133, Macro F1: 70.1560983868279, Macro Precision: 77.63592521158064, Macro Recall: 71.62555821805532, Exact Match: 49.32432432432432, Totally Wrong: 14.312039312039312, Hal Score: 82.09113165165597
+Micro F1: 0.44046385393535653, Micro precision: 0.7527407657277787, Micro Recall: 0.31131417410714285
+Total number of samples: 1628, no answer samples: 46, ratio: 0.028255528255528257
+Hit: 85.8108108108108
+==================================================
+==================================================

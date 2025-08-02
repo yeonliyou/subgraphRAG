@@ -1,0 +1,66 @@
+WARNING 07-12 06:10:31 arg_utils.py:839] Chunked prefill is enabled by default for models with max_model_len > 32K. Currently, chunked prefill might not work with some features or models. If you encounter any issues, please disable chunked prefill by setting --enable-chunked-prefill=False.
+INFO 07-12 06:10:31 config.py:911] Chunked prefill is enabled with max_num_batched_tokens=512.
+INFO 07-12 06:10:31 llm_engine.py:184] Initializing an LLM engine (v0.5.5) with config: model='meta-llama/Meta-Llama-3.1-8B-Instruct', speculative_config=None, tokenizer='meta-llama/Meta-Llama-3.1-8B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, rope_scaling=None, rope_theta=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=131072, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, quantization_param_path=None, device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='outlines'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=meta-llama/Meta-Llama-3.1-8B-Instruct, use_v2_block_manager=False, enable_prefix_caching=False)
+INFO 07-12 06:10:33 model_runner.py:879] Starting to load model meta-llama/Meta-Llama-3.1-8B-Instruct...
+INFO 07-12 06:10:34 weight_utils.py:236] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:00<00:00,  5.88it/s]
+Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:00<00:00,  2.02it/s]
+Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:01<00:00,  1.61it/s]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:02<00:00,  1.47it/s]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:02<00:00,  1.64it/s]
+INFO 07-12 06:10:37 model_runner.py:890] Loading model weights took 14.9888 GB
+INFO 07-12 06:10:38 gpu_executor.py:121] # GPU blocks: 13416, # CPU blocks: 2048
+INFO 07-12 06:10:39 model_runner.py:1181] Capturing the model for CUDA graphs. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI.
+INFO 07-12 06:10:39 model_runner.py:1185] CUDA graphs can take additional 1~3 GiB memory per GPU. If you are running out of memory, consider decreasing `gpu_memory_utilization` or enforcing eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 07-12 06:10:51 model_runner.py:1300] Graph capturing finished in 11 secs.
+Loading subgraphs...
+Adding subgraphs to data...
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1628/1628 [01:17<00:00, 20.89it/s]
+Adding good triplets from ROG...
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1628/1628 [00:00<00:00, 23668.13it/s]
+Adding scored triplets...
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1628/1628 [00:00<00:00, 1049865.76it/s]
+Triplets not found for 0 questions
+Generating prompts...
+Starting inference...
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1628/1628 [1:41:54<00:00,  3.76s/it]
+==================================================
+==================================================
+Evaluating on subset: True
+Results:
+Loading subgraphs...
+Adding subgraphs to data...
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1628/1628 [01:19<00:00, 20.58it/s]
+Adding good triplets from ROG...
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1628/1628 [00:00<00:00, 23446.59it/s]
+Adding scored triplets...
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1628/1628 [00:00<00:00, 844358.47it/s]
+Triplets not found for 0 questions
+1628it [00:02, 691.59it/s] 
+Hit@1: 80.75689544579859, Macro F1: 69.70236008655198, Macro Precision: 76.67825279196659, Macro Recall: 71.31698620310776, Exact Match: 48.685054522129576, Totally Wrong: 14.945477870429762, Hal Score: 60.0
+Micro F1: 0.4570738874895046, Micro precision: 0.7534602076124568, Micro Recall: 0.3280355528773727
+Total number of samples: 1559, no answer samples: 27, ratio: 0.01731879409878127
+Hit: 85.11866581141757
+==================================================
+==================================================
+==================================================
+==================================================
+Evaluating on subset: False
+Results:
+Loading subgraphs...
+Adding subgraphs to data...
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1628/1628 [01:18<00:00, 20.77it/s]
+Adding good triplets from ROG...
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1628/1628 [00:00<00:00, 23480.13it/s]
+Adding scored triplets...
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1628/1628 [00:00<00:00, 706939.32it/s]
+Triplets not found for 0 questions
+1628it [00:03, 416.85it/s]
+Hit@1: 78.56265356265357, Macro F1: 67.95441578546932, Macro Precision: 74.64408032514899, Macro Recall: 69.56159504222376, Exact Match: 47.6044226044226, Totally Wrong: 17.137592137592137, Hal Score: 79.95774700260192
+Micro F1: 0.43374567046016826, Micro precision: 0.7461695607763024, Micro Recall: 0.3057338169642857
+Total number of samples: 1628, no answer samples: 42, ratio: 0.025798525798525797
+Hit: 82.92383292383292
+==================================================
+==================================================

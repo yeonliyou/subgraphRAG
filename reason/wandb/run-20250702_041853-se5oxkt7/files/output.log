@@ -1,0 +1,118 @@
+WARNING 07-02 04:18:56 arg_utils.py:839] Chunked prefill is enabled by default for models with max_model_len > 32K. Currently, chunked prefill might not work with some features or models. If you encounter any issues, please disable chunked prefill by setting --enable-chunked-prefill=False.
+INFO 07-02 04:18:56 config.py:911] Chunked prefill is enabled with max_num_batched_tokens=512.
+INFO 07-02 04:18:56 llm_engine.py:184] Initializing an LLM engine (v0.5.5) with config: model='meta-llama/Meta-Llama-3.1-8B-Instruct', speculative_config=None, tokenizer='meta-llama/Meta-Llama-3.1-8B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, rope_scaling=None, rope_theta=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=131072, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, quantization_param_path=None, device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='outlines'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=meta-llama/Meta-Llama-3.1-8B-Instruct, use_v2_block_manager=False, enable_prefix_caching=False)
+INFO 07-02 04:18:59 model_runner.py:879] Starting to load model meta-llama/Meta-Llama-3.1-8B-Instruct...
+INFO 07-02 04:19:00 weight_utils.py:236] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:00<00:00,  6.33it/s]
+Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:00<00:00,  2.19it/s]
+Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:01<00:00,  1.78it/s]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:02<00:00,  1.64it/s]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:02<00:00,  1.82it/s]
+INFO 07-02 04:19:04 model_runner.py:890] Loading model weights took 14.9888 GB
+INFO 07-02 04:19:05 gpu_executor.py:121] # GPU blocks: 13416, # CPU blocks: 2048
+INFO 07-02 04:19:06 model_runner.py:1181] Capturing the model for CUDA graphs. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI.
+INFO 07-02 04:19:06 model_runner.py:1185] CUDA graphs can take additional 1~3 GiB memory per GPU. If you are running out of memory, consider decreasing `gpu_memory_utilization` or enforcing eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 07-02 04:19:17 model_runner.py:1300] Graph capturing finished in 11 secs.
+Loading subgraphs...
+
+Resolving data files: 100%|█████████████████████████████████████████████████| 18/18 [00:00<00:00, 20.05it/s]
+Resolving data files: 100%|█████████████████████████████████████████████| 18/18 [00:00<00:00, 144079.15it/s]
+Adding subgraphs to data...
+100%|███████████████████████████████████████████████████████████████████| 3531/3531 [02:54<00:00, 20.23it/s]
+Adding good triplets from ROG...
+100%|████████████████████████████████████████████████████████████████| 3531/3531 [00:00<00:00, 15639.99it/s]
+Adding scored triplets...
+100%|███████████████████████████████████████████████████████████████| 3531/3531 [00:00<00:00, 806781.47it/s]
+Triplets not found for 0 questions
+Generating prompts...
+Starting inference...
+**************************************************
+Resuming from results/KGQA/cwq/SubgraphRAG/Meta-Llama-3.1-8B-Instruct/scored_100-sys_icl_dc-0.16-thres_0.0-test-predictions-resume.jsonl
+Last processed item: WebQTest-1923_3dac7aa955af6ee2ede38f6d42711a00
+**************************************************
+ 90%|██████████████████████████████████████████████████████████▋      | 3186/3531 [1:39:04<35:45,  6.22s/it]
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/main.py", line 164, in <module>
+[rank0]:     main()
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/main.py", line 149, in main
+[rank0]:     res = llm_inf_all(llm, each_qa, llm_mode, model_name)
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/llm_utils.py", line 81, in llm_inf_all
+[rank0]:     return llm_inf(llm, each_qa, llm_mode, model_name)
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/llm_utils.py", line 42, in llm_inf
+[rank0]:     outputs = get_outputs(llm(messages=conversation), model_name)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 397, in chat
+[rank0]:     return self.generate(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/utils.py", line 1030, in inner
+[rank0]:     return fn(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 345, in generate
+[rank0]:     outputs = self._run_engine(use_tqdm=use_tqdm)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 686, in _run_engine
+[rank0]:     step_outputs = self.llm_engine.step()
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/engine/llm_engine.py", line 1325, in step
+[rank0]:     output = self.model_executor.execute_model(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/executor/gpu_executor.py", line 129, in execute_model
+[rank0]:     output = self.driver_worker.execute_model(execute_model_req)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/worker/worker_base.py", line 322, in execute_model
+[rank0]:     output = self.model_runner.execute_model(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/worker/model_runner.py", line 1455, in execute_model
+[rank0]:     output: SamplerOutput = self.model.sample(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/model_executor/models/llama.py", line 447, in sample
+[rank0]:     next_tokens = self.sampler(logits, sampling_metadata)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/model_executor/layers/sampler.py", line 153, in forward
+[rank0]:     sample_results, maybe_sampled_tokens_tensor = _sample(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/model_executor/layers/sampler.py", line 771, in _sample
+[rank0]:     return _sample_with_torch(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/model_executor/layers/sampler.py", line 649, in _sample_with_torch
+[rank0]:     sample_results = _greedy_sample(seq_groups, greedy_samples)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/model_executor/layers/sampler.py", line 350, in _greedy_sample
+[rank0]:     samples_lst = samples.tolist()
+[rank0]: KeyboardInterrupt
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/main.py", line 164, in <module>
+[rank0]:     main()
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/main.py", line 149, in main
+[rank0]:     res = llm_inf_all(llm, each_qa, llm_mode, model_name)
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/llm_utils.py", line 81, in llm_inf_all
+[rank0]:     return llm_inf(llm, each_qa, llm_mode, model_name)
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/llm_utils.py", line 42, in llm_inf
+[rank0]:     outputs = get_outputs(llm(messages=conversation), model_name)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 397, in chat
+[rank0]:     return self.generate(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/utils.py", line 1030, in inner
+[rank0]:     return fn(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 345, in generate
+[rank0]:     outputs = self._run_engine(use_tqdm=use_tqdm)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 686, in _run_engine
+[rank0]:     step_outputs = self.llm_engine.step()
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/engine/llm_engine.py", line 1325, in step
+[rank0]:     output = self.model_executor.execute_model(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/executor/gpu_executor.py", line 129, in execute_model
+[rank0]:     output = self.driver_worker.execute_model(execute_model_req)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/worker/worker_base.py", line 322, in execute_model
+[rank0]:     output = self.model_runner.execute_model(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/worker/model_runner.py", line 1455, in execute_model
+[rank0]:     output: SamplerOutput = self.model.sample(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/model_executor/models/llama.py", line 447, in sample
+[rank0]:     next_tokens = self.sampler(logits, sampling_metadata)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/model_executor/layers/sampler.py", line 153, in forward
+[rank0]:     sample_results, maybe_sampled_tokens_tensor = _sample(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/model_executor/layers/sampler.py", line 771, in _sample
+[rank0]:     return _sample_with_torch(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/model_executor/layers/sampler.py", line 649, in _sample_with_torch
+[rank0]:     sample_results = _greedy_sample(seq_groups, greedy_samples)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/model_executor/layers/sampler.py", line 350, in _greedy_sample
+[rank0]:     samples_lst = samples.tolist()
+[rank0]: KeyboardInterrupt

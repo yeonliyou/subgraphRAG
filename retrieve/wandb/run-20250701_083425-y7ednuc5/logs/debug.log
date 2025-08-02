@@ -1,0 +1,29 @@
+2025-07-01 08:34:25,122 INFO    MainThread:2105175 [wandb_setup.py:_flush():76] Current SDK version is 0.17.4
+2025-07-01 08:34:25,122 INFO    MainThread:2105175 [wandb_setup.py:_flush():76] Configure stats pid to 2105175
+2025-07-01 08:34:25,122 INFO    MainThread:2105175 [wandb_setup.py:_flush():76] Loading settings from /home/dongcheon/.config/wandb/settings
+2025-07-01 08:34:25,122 INFO    MainThread:2105175 [wandb_setup.py:_flush():76] Loading settings from /home/dongcheon/SubgraphRAG/retrieve/wandb/settings
+2025-07-01 08:34:25,122 INFO    MainThread:2105175 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2025-07-01 08:34:25,122 INFO    MainThread:2105175 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2025-07-01 08:34:25,122 INFO    MainThread:2105175 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'retrieve/train.py', 'program_abspath': '/home/dongcheon/SubgraphRAG/retrieve/train.py', 'program': '/home/dongcheon/SubgraphRAG/retrieve/train.py'}
+2025-07-01 08:34:25,122 INFO    MainThread:2105175 [wandb_setup.py:_flush():76] Applying login settings: {}
+2025-07-01 08:34:25,122 INFO    MainThread:2105175 [wandb_init.py:_log_setup():529] Logging user logs to /home/dongcheon/SubgraphRAG/retrieve/wandb/run-20250701_083425-y7ednuc5/logs/debug.log
+2025-07-01 08:34:25,122 INFO    MainThread:2105175 [wandb_init.py:_log_setup():530] Logging internal logs to /home/dongcheon/SubgraphRAG/retrieve/wandb/run-20250701_083425-y7ednuc5/logs/debug-internal.log
+2025-07-01 08:34:25,122 INFO    MainThread:2105175 [wandb_init.py:init():569] calling init triggers
+2025-07-01 08:34:25,123 INFO    MainThread:2105175 [wandb_init.py:init():576] wandb.init called with sweep_config: {}
+config: {'env/num_threads': 16, 'env/seed': 42, 'dataset/name': 'cwq', 'dataset/text_encoder_name': 'gte-large-en-v1.5', 'retriever/topic_pe': True, 'retriever/DDE_kwargs/num_rounds': 2, 'retriever/DDE_kwargs/num_reverse_rounds': 2, 'optimizer/lr': 0.001, 'eval/k_list': [100], 'train/num_epochs': 10000, 'train/patience': 10, 'train/save_prefix': 'cwq'}
+2025-07-01 08:34:25,123 INFO    MainThread:2105175 [wandb_init.py:init():619] starting backend
+2025-07-01 08:34:25,123 INFO    MainThread:2105175 [wandb_init.py:init():623] setting up manager
+2025-07-01 08:34:25,123 INFO    MainThread:2105175 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-07-01 08:34:25,124 INFO    MainThread:2105175 [wandb_init.py:init():631] backend started and connected
+2025-07-01 08:34:25,125 INFO    MainThread:2105175 [wandb_init.py:init():720] updated telemetry
+2025-07-01 08:34:25,129 INFO    MainThread:2105175 [wandb_init.py:init():753] communicating run to backend with 90.0 second timeout
+2025-07-01 08:34:25,664 INFO    MainThread:2105175 [wandb_run.py:_on_init():2402] communicating current version
+2025-07-01 08:34:25,706 INFO    MainThread:2105175 [wandb_run.py:_on_init():2411] got version response upgrade_message: "wandb version 0.20.1 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2025-07-01 08:34:25,706 INFO    MainThread:2105175 [wandb_init.py:init():804] starting run threads in backend
+2025-07-01 08:34:27,297 INFO    MainThread:2105175 [wandb_run.py:_console_start():2380] atexit reg
+2025-07-01 08:34:27,297 INFO    MainThread:2105175 [wandb_run.py:_redirect():2235] redirect: wrap_raw
+2025-07-01 08:34:27,297 INFO    MainThread:2105175 [wandb_run.py:_redirect():2300] Wrapping output streams.
+2025-07-01 08:34:27,297 INFO    MainThread:2105175 [wandb_run.py:_redirect():2325] Redirects installed.
+2025-07-01 08:34:27,299 INFO    MainThread:2105175 [wandb_init.py:init():847] run started, returning control to user process
+2025-07-01 08:53:46,045 WARNING MsgRouterThr:2105175 [router.py:message_loop():77] message_loop has been closed

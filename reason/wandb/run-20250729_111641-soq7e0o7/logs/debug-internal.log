@@ -1,0 +1,16 @@
+{"time":"2025-07-29T11:16:41.542719568Z","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"/home/dongcheon/SubgraphRAG/reason/wandb/run-20250729_111641-soq7e0o7/logs/debug-core.log"}
+{"time":"2025-07-29T11:16:42.050917395Z","level":"INFO","msg":"stream: created new stream","id":"soq7e0o7"}
+{"time":"2025-07-29T11:16:42.050970915Z","level":"INFO","msg":"stream: started","id":"soq7e0o7"}
+{"time":"2025-07-29T11:16:42.050987441Z","level":"INFO","msg":"handler: started","stream_id":"soq7e0o7"}
+{"time":"2025-07-29T11:16:42.05104335Z","level":"INFO","msg":"writer: Do: started","stream_id":"soq7e0o7"}
+{"time":"2025-07-29T11:16:42.050999563Z","level":"INFO","msg":"sender: started","stream_id":"soq7e0o7"}
+{"time":"2025-07-29T11:16:42.688207939Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-07-29T11:17:10.113696905Z","level":"INFO","msg":"stream: closing","id":"soq7e0o7"}
+{"time":"2025-07-29T11:17:10.11374093Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-07-29T11:17:10.113971736Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-07-29T11:17:28.082630131Z","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded"}
+{"time":"2025-07-29T11:17:31.17436381Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-07-29T11:17:31.526760693Z","level":"INFO","msg":"handler: closed","stream_id":"soq7e0o7"}
+{"time":"2025-07-29T11:17:31.526812766Z","level":"INFO","msg":"writer: Close: closed","stream_id":"soq7e0o7"}
+{"time":"2025-07-29T11:17:31.526824464Z","level":"INFO","msg":"sender: closed","stream_id":"soq7e0o7"}
+{"time":"2025-07-29T11:17:31.526928531Z","level":"INFO","msg":"stream: closed","id":"soq7e0o7"}

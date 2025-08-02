@@ -1,0 +1,61 @@
+_wandb:
+    value:
+        cli_version: 0.20.1
+        m: []
+        python_version: 3.10.14
+        t:
+            "1":
+                - 1
+                - 5
+                - 11
+                - 30
+                - 41
+                - 49
+                - 51
+                - 53
+                - 95
+            "2":
+                - 1
+                - 5
+                - 11
+                - 30
+                - 41
+                - 49
+                - 51
+                - 53
+                - 95
+            "3":
+                - 13
+                - 16
+                - 55
+            "4": 3.10.14
+            "5": 0.20.1
+            "6": 4.53.0
+            "12": 0.20.1
+            "13": linux-x86_64
+dataset_name:
+    value: webqsp
+frequency_penalty:
+    value: 0.16
+llm_mode:
+    value: sys_icl_dc
+max_seq_len_to_capture:
+    value: 16384
+max_tokens:
+    value: 4000
+model_name:
+    value: meta-llama/Meta-Llama-3.1-8B-Instruct
+prompt_mode:
+    value: scored_20
+score_dict_path:
+    value: /home/dongcheon/SubgraphRAG/retrieve/webqsp_Jul11-10:31:50/retrieval_result.pth
+seed:
+    value: 0
+split:
+    value: test
+temperature:
+    value: 0
+tensor_parallel_size:
+    value: 1
+thres:
+    value: 0

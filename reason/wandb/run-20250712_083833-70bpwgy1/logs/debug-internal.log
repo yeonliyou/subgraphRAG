@@ -1,0 +1,7 @@
+{"time":"2025-07-12T08:38:33.826332007Z","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"/home/dongcheon/SubgraphRAG/reason/wandb/run-20250712_083833-70bpwgy1/logs/debug-core.log"}
+{"time":"2025-07-12T08:38:34.294133989Z","level":"INFO","msg":"stream: created new stream","id":"70bpwgy1"}
+{"time":"2025-07-12T08:38:34.295247962Z","level":"INFO","msg":"stream: started","id":"70bpwgy1"}
+{"time":"2025-07-12T08:38:34.295281584Z","level":"INFO","msg":"writer: Do: started","stream_id":"70bpwgy1"}
+{"time":"2025-07-12T08:38:34.29529286Z","level":"INFO","msg":"sender: started","stream_id":"70bpwgy1"}
+{"time":"2025-07-12T08:38:34.295423007Z","level":"INFO","msg":"handler: started","stream_id":"70bpwgy1"}
+{"time":"2025-07-12T08:38:34.617812568Z","level":"INFO","msg":"Starting system monitor"}

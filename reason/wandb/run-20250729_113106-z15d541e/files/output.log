@@ -1,0 +1,53 @@
+WARNING 07-29 11:31:08 arg_utils.py:839] Chunked prefill is enabled by default for models with max_model_len > 32K. Currently, chunked prefill might not work with some features or models. If you encounter any issues, please disable chunked prefill by setting --enable-chunked-prefill=False.
+INFO 07-29 11:31:08 config.py:911] Chunked prefill is enabled with max_num_batched_tokens=512.
+INFO 07-29 11:31:08 llm_engine.py:184] Initializing an LLM engine (v0.5.5) with config: model='meta-llama/Meta-Llama-3.1-8B-Instruct', speculative_config=None, tokenizer='meta-llama/Meta-Llama-3.1-8B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, rope_scaling=None, rope_theta=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=131072, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, quantization_param_path=None, device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='outlines'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=meta-llama/Meta-Llama-3.1-8B-Instruct, use_v2_block_manager=False, enable_prefix_caching=False)
+INFO 07-29 11:31:11 model_runner.py:879] Starting to load model meta-llama/Meta-Llama-3.1-8B-Instruct...
+INFO 07-29 11:31:12 weight_utils.py:236] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:00<00:00,  4.29it/s]
+Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:01<00:01,  1.41it/s]
+Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:02<00:00,  1.11it/s]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:03<00:00,  1.02it/s]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:03<00:00,  1.14it/s]
+INFO 07-29 11:31:17 model_runner.py:890] Loading model weights took 14.9888 GB
+INFO 07-29 11:31:17 gpu_executor.py:121] # GPU blocks: 13416, # CPU blocks: 2048
+INFO 07-29 11:31:19 model_runner.py:1181] Capturing the model for CUDA graphs. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI.
+INFO 07-29 11:31:19 model_runner.py:1185] CUDA graphs can take additional 1~3 GiB memory per GPU. If you are running out of memory, consider decreasing `gpu_memory_utilization` or enforcing eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 07-29 11:31:34 model_runner.py:1300] Graph capturing finished in 15 secs.
+Loading subgraphs...
+
+Resolving data files: 100%|█████████████████████████████████████████████████████████████████| 22/22 [00:00<00:00, 38.87it/s]
+Resolving data files: 100%|██████████████████████████████████████████████████████████████| 22/22 [00:00<00:00, 80099.56it/s]
+Adding subgraphs to data...
+100%|█████████████████████████████████████████████████████████████████████████████████████| 200/200 [00:07<00:00, 27.23it/s]
+Adding good triplets from ROG...
+100%|█████████████████████████████████████████████████████████████████████████████████| 200/200 [00:00<00:00, 145534.49it/s]
+Adding scored triplets...
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/main.py", line 164, in <module>
+[rank0]:     main()
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/main.py", line 140, in main
+[rank0]:     data = get_data(dataset_name, pred_file_path, score_dict_path, split, prompt_mode)
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/preprocess/prepare_data.py", line 130, in get_data
+[rank0]:     data = add_scored_triplets(data, score_dict_path, prompt_mode)
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/preprocess/prepare_data.py", line 74, in add_scored_triplets
+[rank0]:     triple_score_dict = torch.load(score_dict_path, weights_only=False)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/torch/serialization.py", line 1072, in load
+[rank0]:     with _open_zipfile_reader(opened_file) as opened_zipfile:
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/torch/serialization.py", line 480, in __init__
+[rank0]:     super().__init__(torch._C.PyTorchFileReader(name_or_buffer))
+[rank0]: RuntimeError: PytorchStreamReader failed reading zip archive: invalid header or archive is corrupted
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/main.py", line 164, in <module>
+[rank0]:     main()
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/main.py", line 140, in main
+[rank0]:     data = get_data(dataset_name, pred_file_path, score_dict_path, split, prompt_mode)
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/preprocess/prepare_data.py", line 130, in get_data
+[rank0]:     data = add_scored_triplets(data, score_dict_path, prompt_mode)
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/preprocess/prepare_data.py", line 74, in add_scored_triplets
+[rank0]:     triple_score_dict = torch.load(score_dict_path, weights_only=False)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/torch/serialization.py", line 1072, in load
+[rank0]:     with _open_zipfile_reader(opened_file) as opened_zipfile:
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/torch/serialization.py", line 480, in __init__
+[rank0]:     super().__init__(torch._C.PyTorchFileReader(name_or_buffer))
+[rank0]: RuntimeError: PytorchStreamReader failed reading zip archive: invalid header or archive is corrupted

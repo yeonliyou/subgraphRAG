@@ -1,0 +1,15 @@
+{"time":"2025-07-11T14:15:48.032154333Z","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"/home/dongcheon/SubgraphRAG/reason/wandb/run-20250711_141547-czecs80b/logs/debug-core.log"}
+{"time":"2025-07-11T14:15:48.464336016Z","level":"INFO","msg":"stream: created new stream","id":"czecs80b"}
+{"time":"2025-07-11T14:15:48.464402151Z","level":"INFO","msg":"stream: started","id":"czecs80b"}
+{"time":"2025-07-11T14:15:48.464432932Z","level":"INFO","msg":"handler: started","stream_id":"czecs80b"}
+{"time":"2025-07-11T14:15:48.464444144Z","level":"INFO","msg":"sender: started","stream_id":"czecs80b"}
+{"time":"2025-07-11T14:15:48.46455822Z","level":"INFO","msg":"writer: Do: started","stream_id":"czecs80b"}
+{"time":"2025-07-11T14:15:48.86868814Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-07-11T14:15:57.236034406Z","level":"INFO","msg":"stream: closing","id":"czecs80b"}
+{"time":"2025-07-11T14:15:57.236092801Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-07-11T14:15:57.236198962Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-07-11T14:15:57.770777695Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-07-11T14:15:58.04795429Z","level":"INFO","msg":"handler: closed","stream_id":"czecs80b"}
+{"time":"2025-07-11T14:15:58.048004668Z","level":"INFO","msg":"writer: Close: closed","stream_id":"czecs80b"}
+{"time":"2025-07-11T14:15:58.048036337Z","level":"INFO","msg":"sender: closed","stream_id":"czecs80b"}
+{"time":"2025-07-11T14:15:58.048124403Z","level":"INFO","msg":"stream: closed","id":"czecs80b"}

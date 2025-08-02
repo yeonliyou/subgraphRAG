@@ -1,0 +1,206 @@
+WARNING 07-17 14:43:57 arg_utils.py:839] Chunked prefill is enabled by default for models with max_model_len > 32K. Currently, chunked prefill might not work with some features or models. If you encounter any issues, please disable chunked prefill by setting --enable-chunked-prefill=False.
+INFO 07-17 14:43:57 config.py:911] Chunked prefill is enabled with max_num_batched_tokens=512.
+INFO 07-17 14:43:57 llm_engine.py:184] Initializing an LLM engine (v0.5.5) with config: model='meta-llama/Meta-Llama-3.1-8B-Instruct', speculative_config=None, tokenizer='meta-llama/Meta-Llama-3.1-8B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, rope_scaling=None, rope_theta=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=131072, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, quantization_param_path=None, device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='outlines'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=meta-llama/Meta-Llama-3.1-8B-Instruct, use_v2_block_manager=False, enable_prefix_caching=False)
+INFO 07-17 14:44:00 model_runner.py:879] Starting to load model meta-llama/Meta-Llama-3.1-8B-Instruct...
+INFO 07-17 14:44:01 weight_utils.py:236] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:00<00:00,  5.22it/s]
+Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:00<00:01,  1.84it/s]
+Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:01<00:00,  1.43it/s]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:02<00:00,  1.27it/s]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:02<00:00,  1.43it/s]
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/main.py", line 164, in <module>
+[rank0]:     main()
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/main.py", line 139, in main
+[rank0]:     llm = llm_init(model_name, tensor_parallel_size, max_seq_len_to_capture, max_tokens, seed, temperature, frequency_penalty)
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/llm_utils.py", line 12, in llm_init
+[rank0]:     client = LLM(model=model_name, tensor_parallel_size=tensor_parallel_size, max_seq_len_to_capture=max_seq_len_to_capture)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 175, in __init__
+[rank0]:     self.llm_engine = LLMEngine.from_engine_args(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/vllm/engine/llm_engine.py", line 473, in from_engine_args
+[rank0]:     engine = cls(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/vllm/engine/llm_engine.py", line 284, in __init__
+[rank0]:     self._initialize_kv_caches()
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/vllm/engine/llm_engine.py", line 390, in _initialize_kv_caches
+[rank0]:     self.model_executor.determine_num_available_blocks())
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/vllm/executor/gpu_executor.py", line 113, in determine_num_available_blocks
+[rank0]:     return self.driver_worker.determine_num_available_blocks()
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/vllm/worker/worker.py", line 222, in determine_num_available_blocks
+[rank0]:     self.model_runner.profile_run()
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/vllm/worker/model_runner.py", line 1097, in profile_run
+[rank0]:     self.execute_model(model_input, kv_caches, intermediate_tensors)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/vllm/worker/model_runner.py", line 1415, in execute_model
+[rank0]:     hidden_or_intermediate_states = model_executable(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/vllm/model_executor/models/llama.py", line 429, in forward
+[rank0]:     model_output = self.model(input_ids, positions, kv_caches,
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/vllm/model_executor/models/llama.py", line 329, in forward
+[rank0]:     hidden_states, residual = layer(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/vllm/model_executor/models/llama.py", line 247, in forward
+[rank0]:     hidden_states = self.input_layernorm(hidden_states)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/vllm/model_executor/custom_op.py", line 14, in forward
+[rank0]:     return self._forward_method(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/vllm/model_executor/layers/layernorm.py", line 62, in forward_cuda
+[rank0]:     ops.rms_norm(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/vllm/_custom_ops.py", line 28, in wrapper
+[rank0]:     return fn(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/vllm/_custom_ops.py", line 155, in rms_norm
+[rank0]:     torch.ops._C.rms_norm(out, input, weight, epsilon)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/torch/_ops.py", line 1116, in __call__
+[rank0]:     return self._op(*args, **(kwargs or {}))
+[rank0]: NotImplementedError: Could not run '_C::rms_norm' with arguments from the 'CUDA' backend. This could be because the operator doesn't exist for this backend, or was omitted during the selective/custom build process (if using custom build). If you are a Facebook employee using PyTorch on mobile, please visit https://fburl.com/ptmfixes for possible resolutions. '_C::rms_norm' is only available for these backends: [CPU, Meta, BackendSelect, Python, FuncTorchDynamicLayerBackMode, Functionalize, Named, Conjugate, Negative, ZeroTensor, ADInplaceOrView, AutogradOther, AutogradCPU, AutogradCUDA, AutogradXLA, AutogradMPS, AutogradXPU, AutogradHPU, AutogradLazy, AutogradMeta, Tracer, AutocastCPU, AutocastXPU, AutocastMPS, AutocastCUDA, FuncTorchBatched, BatchedNestedTensor, FuncTorchVmapMode, Batched, VmapMode, FuncTorchGradWrapper, PythonTLSSnapshot, FuncTorchDynamicLayerFrontMode, PreDispatch, PythonDispatcher].
+[rank0]: CPU: registered at /workspace/csrc/torch_bindings.cpp:18 [kernel]
+[rank0]: Meta: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/MetaFallbackKernel.cpp:23 [backend fallback]
+[rank0]: BackendSelect: fallthrough registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/BackendSelectFallbackKernel.cpp:3 [backend fallback]
+[rank0]: Python: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/PythonFallbackKernel.cpp:153 [backend fallback]
+[rank0]: FuncTorchDynamicLayerBackMode: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/functorch/DynamicLayer.cpp:497 [backend fallback]
+[rank0]: Functionalize: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/FunctionalizeFallbackKernel.cpp:349 [backend fallback]
+[rank0]: Named: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/NamedRegistrations.cpp:7 [backend fallback]
+[rank0]: Conjugate: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/ConjugateFallback.cpp:17 [backend fallback]
+[rank0]: Negative: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/native/NegateFallback.cpp:18 [backend fallback]
+[rank0]: ZeroTensor: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/ZeroTensorFallback.cpp:86 [backend fallback]
+[rank0]: ADInplaceOrView: fallthrough registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/VariableFallbackKernel.cpp:96 [backend fallback]
+[rank0]: AutogradOther: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/VariableFallbackKernel.cpp:63 [backend fallback]
+[rank0]: AutogradCPU: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/VariableFallbackKernel.cpp:67 [backend fallback]
+[rank0]: AutogradCUDA: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/VariableFallbackKernel.cpp:75 [backend fallback]
+[rank0]: AutogradXLA: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/VariableFallbackKernel.cpp:79 [backend fallback]
+[rank0]: AutogradMPS: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/VariableFallbackKernel.cpp:87 [backend fallback]
+[rank0]: AutogradXPU: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/VariableFallbackKernel.cpp:71 [backend fallback]
+[rank0]: AutogradHPU: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/VariableFallbackKernel.cpp:100 [backend fallback]
+[rank0]: AutogradLazy: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/VariableFallbackKernel.cpp:83 [backend fallback]
+[rank0]: AutogradMeta: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/VariableFallbackKernel.cpp:91 [backend fallback]
+[rank0]: Tracer: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/torch/csrc/autograd/TraceTypeManual.cpp:294 [backend fallback]
+[rank0]: AutocastCPU: fallthrough registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/autocast_mode.cpp:321 [backend fallback]
+[rank0]: AutocastXPU: fallthrough registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/autocast_mode.cpp:463 [backend fallback]
+[rank0]: AutocastMPS: fallthrough registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/autocast_mode.cpp:209 [backend fallback]
+[rank0]: AutocastCUDA: fallthrough registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/autocast_mode.cpp:165 [backend fallback]
+[rank0]: FuncTorchBatched: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/functorch/LegacyBatchingRegistrations.cpp:731 [backend fallback]
+[rank0]: BatchedNestedTensor: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/functorch/LegacyBatchingRegistrations.cpp:758 [backend fallback]
+[rank0]: FuncTorchVmapMode: fallthrough registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/functorch/VmapModeRegistrations.cpp:27 [backend fallback]
+[rank0]: Batched: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/LegacyBatchingRegistrations.cpp:1075 [backend fallback]
+[rank0]: VmapMode: fallthrough registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/VmapModeRegistrations.cpp:33 [backend fallback]
+[rank0]: FuncTorchGradWrapper: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/functorch/TensorWrapper.cpp:207 [backend fallback]
+[rank0]: PythonTLSSnapshot: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/PythonFallbackKernel.cpp:161 [backend fallback]
+[rank0]: FuncTorchDynamicLayerFrontMode: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/functorch/DynamicLayer.cpp:493 [backend fallback]
+[rank0]: PreDispatch: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/PythonFallbackKernel.cpp:165 [backend fallback]
+[rank0]: PythonDispatcher: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/PythonFallbackKernel.cpp:157 [backend fallback]
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/main.py", line 164, in <module>
+[rank0]:     main()
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/main.py", line 139, in main
+[rank0]:     llm = llm_init(model_name, tensor_parallel_size, max_seq_len_to_capture, max_tokens, seed, temperature, frequency_penalty)
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/llm_utils.py", line 12, in llm_init
+[rank0]:     client = LLM(model=model_name, tensor_parallel_size=tensor_parallel_size, max_seq_len_to_capture=max_seq_len_to_capture)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 175, in __init__
+[rank0]:     self.llm_engine = LLMEngine.from_engine_args(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/vllm/engine/llm_engine.py", line 473, in from_engine_args
+[rank0]:     engine = cls(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/vllm/engine/llm_engine.py", line 284, in __init__
+[rank0]:     self._initialize_kv_caches()
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/vllm/engine/llm_engine.py", line 390, in _initialize_kv_caches
+[rank0]:     self.model_executor.determine_num_available_blocks())
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/vllm/executor/gpu_executor.py", line 113, in determine_num_available_blocks
+[rank0]:     return self.driver_worker.determine_num_available_blocks()
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/vllm/worker/worker.py", line 222, in determine_num_available_blocks
+[rank0]:     self.model_runner.profile_run()
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/vllm/worker/model_runner.py", line 1097, in profile_run
+[rank0]:     self.execute_model(model_input, kv_caches, intermediate_tensors)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/vllm/worker/model_runner.py", line 1415, in execute_model
+[rank0]:     hidden_or_intermediate_states = model_executable(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/vllm/model_executor/models/llama.py", line 429, in forward
+[rank0]:     model_output = self.model(input_ids, positions, kv_caches,
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/vllm/model_executor/models/llama.py", line 329, in forward
+[rank0]:     hidden_states, residual = layer(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/vllm/model_executor/models/llama.py", line 247, in forward
+[rank0]:     hidden_states = self.input_layernorm(hidden_states)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/vllm/model_executor/custom_op.py", line 14, in forward
+[rank0]:     return self._forward_method(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/vllm/model_executor/layers/layernorm.py", line 62, in forward_cuda
+[rank0]:     ops.rms_norm(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/vllm/_custom_ops.py", line 28, in wrapper
+[rank0]:     return fn(*args, **kwargs)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/vllm/_custom_ops.py", line 155, in rms_norm
+[rank0]:     torch.ops._C.rms_norm(out, input, weight, epsilon)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/torch/_ops.py", line 1116, in __call__
+[rank0]:     return self._op(*args, **(kwargs or {}))
+[rank0]: NotImplementedError: Could not run '_C::rms_norm' with arguments from the 'CUDA' backend. This could be because the operator doesn't exist for this backend, or was omitted during the selective/custom build process (if using custom build). If you are a Facebook employee using PyTorch on mobile, please visit https://fburl.com/ptmfixes for possible resolutions. '_C::rms_norm' is only available for these backends: [CPU, Meta, BackendSelect, Python, FuncTorchDynamicLayerBackMode, Functionalize, Named, Conjugate, Negative, ZeroTensor, ADInplaceOrView, AutogradOther, AutogradCPU, AutogradCUDA, AutogradXLA, AutogradMPS, AutogradXPU, AutogradHPU, AutogradLazy, AutogradMeta, Tracer, AutocastCPU, AutocastXPU, AutocastMPS, AutocastCUDA, FuncTorchBatched, BatchedNestedTensor, FuncTorchVmapMode, Batched, VmapMode, FuncTorchGradWrapper, PythonTLSSnapshot, FuncTorchDynamicLayerFrontMode, PreDispatch, PythonDispatcher].
+[rank0]: CPU: registered at /workspace/csrc/torch_bindings.cpp:18 [kernel]
+[rank0]: Meta: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/MetaFallbackKernel.cpp:23 [backend fallback]
+[rank0]: BackendSelect: fallthrough registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/BackendSelectFallbackKernel.cpp:3 [backend fallback]
+[rank0]: Python: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/PythonFallbackKernel.cpp:153 [backend fallback]
+[rank0]: FuncTorchDynamicLayerBackMode: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/functorch/DynamicLayer.cpp:497 [backend fallback]
+[rank0]: Functionalize: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/FunctionalizeFallbackKernel.cpp:349 [backend fallback]
+[rank0]: Named: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/NamedRegistrations.cpp:7 [backend fallback]
+[rank0]: Conjugate: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/ConjugateFallback.cpp:17 [backend fallback]
+[rank0]: Negative: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/native/NegateFallback.cpp:18 [backend fallback]
+[rank0]: ZeroTensor: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/ZeroTensorFallback.cpp:86 [backend fallback]
+[rank0]: ADInplaceOrView: fallthrough registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/VariableFallbackKernel.cpp:96 [backend fallback]
+[rank0]: AutogradOther: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/VariableFallbackKernel.cpp:63 [backend fallback]
+[rank0]: AutogradCPU: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/VariableFallbackKernel.cpp:67 [backend fallback]
+[rank0]: AutogradCUDA: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/VariableFallbackKernel.cpp:75 [backend fallback]
+[rank0]: AutogradXLA: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/VariableFallbackKernel.cpp:79 [backend fallback]
+[rank0]: AutogradMPS: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/VariableFallbackKernel.cpp:87 [backend fallback]
+[rank0]: AutogradXPU: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/VariableFallbackKernel.cpp:71 [backend fallback]
+[rank0]: AutogradHPU: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/VariableFallbackKernel.cpp:100 [backend fallback]
+[rank0]: AutogradLazy: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/VariableFallbackKernel.cpp:83 [backend fallback]
+[rank0]: AutogradMeta: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/VariableFallbackKernel.cpp:91 [backend fallback]
+[rank0]: Tracer: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/torch/csrc/autograd/TraceTypeManual.cpp:294 [backend fallback]
+[rank0]: AutocastCPU: fallthrough registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/autocast_mode.cpp:321 [backend fallback]
+[rank0]: AutocastXPU: fallthrough registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/autocast_mode.cpp:463 [backend fallback]
+[rank0]: AutocastMPS: fallthrough registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/autocast_mode.cpp:209 [backend fallback]
+[rank0]: AutocastCUDA: fallthrough registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/autocast_mode.cpp:165 [backend fallback]
+[rank0]: FuncTorchBatched: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/functorch/LegacyBatchingRegistrations.cpp:731 [backend fallback]
+[rank0]: BatchedNestedTensor: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/functorch/LegacyBatchingRegistrations.cpp:758 [backend fallback]
+[rank0]: FuncTorchVmapMode: fallthrough registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/functorch/VmapModeRegistrations.cpp:27 [backend fallback]
+[rank0]: Batched: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/LegacyBatchingRegistrations.cpp:1075 [backend fallback]
+[rank0]: VmapMode: fallthrough registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/VmapModeRegistrations.cpp:33 [backend fallback]
+[rank0]: FuncTorchGradWrapper: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/functorch/TensorWrapper.cpp:207 [backend fallback]
+[rank0]: PythonTLSSnapshot: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/PythonFallbackKernel.cpp:161 [backend fallback]
+[rank0]: FuncTorchDynamicLayerFrontMode: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/functorch/DynamicLayer.cpp:493 [backend fallback]
+[rank0]: PreDispatch: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/PythonFallbackKernel.cpp:165 [backend fallback]
+[rank0]: PythonDispatcher: registered at /opt/conda/conda-bld/pytorch_1728929558238/work/aten/src/ATen/core/PythonFallbackKernel.cpp:157 [backend fallback]
+INFO 07-17 14:44:05 model_runner.py:890] Loading model weights took 14.9888 GB

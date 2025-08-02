@@ -1,0 +1,70 @@
+WARNING 07-11 14:15:49 arg_utils.py:839] Chunked prefill is enabled by default for models with max_model_len > 32K. Currently, chunked prefill might not work with some features or models. If you encounter any issues, please disable chunked prefill by setting --enable-chunked-prefill=False.
+INFO 07-11 14:15:49 config.py:911] Chunked prefill is enabled with max_num_batched_tokens=512.
+INFO 07-11 14:15:49 llm_engine.py:184] Initializing an LLM engine (v0.5.5) with config: model='meta-llama/Meta-Llama-3.1-8B-Instruct', speculative_config=None, tokenizer='meta-llama/Meta-Llama-3.1-8B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, rope_scaling=None, rope_theta=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=131072, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, quantization_param_path=None, device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='outlines'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=meta-llama/Meta-Llama-3.1-8B-Instruct, use_v2_block_manager=False, enable_prefix_caching=False)
+INFO 07-11 14:15:51 model_runner.py:879] Starting to load model meta-llama/Meta-Llama-3.1-8B-Instruct...
+INFO 07-11 14:15:52 weight_utils.py:236] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:00<00:00,  5.88it/s]
+Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:00<00:00,  2.03it/s]
+Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:01<00:00,  1.56it/s]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:02<00:00,  1.41it/s]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:02<00:00,  1.58it/s]
+INFO 07-11 14:15:56 model_runner.py:890] Loading model weights took 14.9888 GB
+INFO 07-11 14:15:57 gpu_executor.py:121] # GPU blocks: 13416, # CPU blocks: 2048
+
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/main.py", line 164, in <module>
+[rank0]:     main()
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/main.py", line 139, in main
+[rank0]:     llm = llm_init(model_name, tensor_parallel_size, max_seq_len_to_capture, max_tokens, seed, temperature, frequency_penalty)
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/llm_utils.py", line 12, in llm_init
+[rank0]:     client = LLM(model=model_name, tensor_parallel_size=tensor_parallel_size, max_seq_len_to_capture=max_seq_len_to_capture)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 175, in __init__
+[rank0]:     self.llm_engine = LLMEngine.from_engine_args(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/engine/llm_engine.py", line 473, in from_engine_args
+[rank0]:     engine = cls(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/engine/llm_engine.py", line 284, in __init__
+[rank0]:     self._initialize_kv_caches()
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/engine/llm_engine.py", line 403, in _initialize_kv_caches
+[rank0]:     self.model_executor.initialize_cache(num_gpu_blocks, num_cpu_blocks)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/executor/gpu_executor.py", line 124, in initialize_cache
+[rank0]:     self.driver_worker.initialize_cache(num_gpu_blocks, num_cpu_blocks)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/worker/worker.py", line 264, in initialize_cache
+[rank0]:     self._init_cache_engine()
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/worker/worker.py", line 269, in _init_cache_engine
+[rank0]:     self.cache_engine = [
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/worker/worker.py", line 270, in <listcomp>
+[rank0]:     CacheEngine(self.cache_config, self.model_config,
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/worker/cache_engine.py", line 66, in __init__
+[rank0]:     self.gpu_cache = self._allocate_kv_cache(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/worker/cache_engine.py", line 85, in _allocate_kv_cache
+[rank0]:     torch.zeros(kv_cache_shape,
+[rank0]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 840.00 MiB. GPU 0 has a total capacity of 47.38 GiB of which 745.38 MiB is free. Process 1038754 has 18.81 GiB memory in use. Including non-PyTorch memory, this process has 27.83 GiB memory in use. Of the allocated memory 27.28 GiB is allocated by PyTorch, and 51.86 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/main.py", line 164, in <module>
+[rank0]:     main()
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/main.py", line 139, in main
+[rank0]:     llm = llm_init(model_name, tensor_parallel_size, max_seq_len_to_capture, max_tokens, seed, temperature, frequency_penalty)
+[rank0]:   File "/home/dongcheon/SubgraphRAG/reason/llm_utils.py", line 12, in llm_init
+[rank0]:     client = LLM(model=model_name, tensor_parallel_size=tensor_parallel_size, max_seq_len_to_capture=max_seq_len_to_capture)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 175, in __init__
+[rank0]:     self.llm_engine = LLMEngine.from_engine_args(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/engine/llm_engine.py", line 473, in from_engine_args
+[rank0]:     engine = cls(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/engine/llm_engine.py", line 284, in __init__
+[rank0]:     self._initialize_kv_caches()
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/engine/llm_engine.py", line 403, in _initialize_kv_caches
+[rank0]:     self.model_executor.initialize_cache(num_gpu_blocks, num_cpu_blocks)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/executor/gpu_executor.py", line 124, in initialize_cache
+[rank0]:     self.driver_worker.initialize_cache(num_gpu_blocks, num_cpu_blocks)
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/worker/worker.py", line 264, in initialize_cache
+[rank0]:     self._init_cache_engine()
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/worker/worker.py", line 269, in _init_cache_engine
+[rank0]:     self.cache_engine = [
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/worker/worker.py", line 270, in <listcomp>
+[rank0]:     CacheEngine(self.cache_config, self.model_config,
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/worker/cache_engine.py", line 66, in __init__
+[rank0]:     self.gpu_cache = self._allocate_kv_cache(
+[rank0]:   File "/home/dongcheon/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/worker/cache_engine.py", line 85, in _allocate_kv_cache
+[rank0]:     torch.zeros(kv_cache_shape,
+[rank0]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 840.00 MiB. GPU 0 has a total capacity of 47.38 GiB of which 745.38 MiB is free. Process 1038754 has 18.81 GiB memory in use. Including non-PyTorch memory, this process has 27.83 GiB memory in use. Of the allocated memory 27.28 GiB is allocated by PyTorch, and 51.86 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

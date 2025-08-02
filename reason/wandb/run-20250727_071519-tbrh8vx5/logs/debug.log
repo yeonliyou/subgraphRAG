@@ -1,0 +1,22 @@
+2025-07-27 07:15:19,919 INFO    MainThread:1433488 [wandb_setup.py:_flush():81] Current SDK version is 0.20.1
+2025-07-27 07:15:19,919 INFO    MainThread:1433488 [wandb_setup.py:_flush():81] Configure stats pid to 1433488
+2025-07-27 07:15:19,919 INFO    MainThread:1433488 [wandb_setup.py:_flush():81] Loading settings from /home/dongcheon/.config/wandb/settings
+2025-07-27 07:15:19,919 INFO    MainThread:1433488 [wandb_setup.py:_flush():81] Loading settings from /home/dongcheon/SubgraphRAG/reason/wandb/settings
+2025-07-27 07:15:19,919 INFO    MainThread:1433488 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2025-07-27 07:15:19,919 INFO    MainThread:1433488 [wandb_init.py:setup_run_log_directory():703] Logging user logs to /home/dongcheon/SubgraphRAG/reason/wandb/run-20250727_071519-tbrh8vx5/logs/debug.log
+2025-07-27 07:15:19,919 INFO    MainThread:1433488 [wandb_init.py:setup_run_log_directory():704] Logging internal logs to /home/dongcheon/SubgraphRAG/reason/wandb/run-20250727_071519-tbrh8vx5/logs/debug-internal.log
+2025-07-27 07:15:19,919 INFO    MainThread:1433488 [wandb_init.py:init():831] calling init triggers
+2025-07-27 07:15:19,919 INFO    MainThread:1433488 [wandb_init.py:init():836] wandb.init called with sweep_config: {}
+config: {'dataset_name': 'metaqa-3hop', 'prompt_mode': 'scored_100', 'score_dict_path': '/home/dongcheon/SubgraphRAG/retrieve/metaqa-3hop_Jul17-13:08:20/retrieval_result.pth', 'llm_mode': 'sys_icl_dc', 'model_name': 'meta-llama/Meta-Llama-3.1-8B-Instruct', 'split': 'test', 'tensor_parallel_size': 1, 'max_seq_len_to_capture': 16384, 'max_tokens': 4000, 'seed': 0, 'temperature': 0, 'frequency_penalty': 0.16, 'thres': 0.0, '_wandb': {}}
+2025-07-27 07:15:19,920 INFO    MainThread:1433488 [wandb_init.py:init():872] starting backend
+2025-07-27 07:15:20,126 INFO    MainThread:1433488 [wandb_init.py:init():875] sending inform_init request
+2025-07-27 07:15:20,129 INFO    MainThread:1433488 [wandb_init.py:init():883] backend started and connected
+2025-07-27 07:15:20,131 INFO    MainThread:1433488 [wandb_init.py:init():956] updated telemetry
+2025-07-27 07:15:20,136 INFO    MainThread:1433488 [wandb_init.py:init():980] communicating run to backend with 90.0 second timeout
+2025-07-27 07:15:20,789 INFO    MainThread:1433488 [wandb_init.py:init():1032] starting run threads in backend
+2025-07-27 07:15:20,872 INFO    MainThread:1433488 [wandb_run.py:_console_start():2453] atexit reg
+2025-07-27 07:15:20,872 INFO    MainThread:1433488 [wandb_run.py:_redirect():2301] redirect: wrap_raw
+2025-07-27 07:15:20,872 INFO    MainThread:1433488 [wandb_run.py:_redirect():2370] Wrapping output streams.
+2025-07-27 07:15:20,872 INFO    MainThread:1433488 [wandb_run.py:_redirect():2393] Redirects installed.
+2025-07-27 07:15:20,874 INFO    MainThread:1433488 [wandb_init.py:init():1078] run started, returning control to user process
+2025-07-27 07:15:45,213 INFO    MsgRouterThr:1433488 [mailbox.py:close():129] [no run ID] Closing mailbox, abandoning 1 handles.

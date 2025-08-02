@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/home/dongcheon/SubgraphRAG/retrieve/train.py", line 168, in <module>
+    main(args)
+  File "/home/dongcheon/SubgraphRAG/retrieve/train.py", line 116, in main
+    train_set = RetrieverDataset(config=config, split='train')
+  File "/home/dongcheon/SubgraphRAG/retrieve/src/dataset/retriever.py", line 27, in __init__
+    emb_dict = self._load_emb(
+  File "/home/dongcheon/SubgraphRAG/retrieve/src/dataset/retriever.py", line 186, in _load_emb
+    dict_file = torch.load(file_path)
+  File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/torch/serialization.py", line 986, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/torch/serialization.py", line 435, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/home/dongcheon/miniconda3/envs/retriever/lib/python3.10/site-packages/torch/serialization.py", line 416, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: 'data_files/cwq/emb/gte-large-en-v1.5/train.pth'

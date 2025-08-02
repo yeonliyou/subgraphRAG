@@ -1,0 +1,72 @@
+wandb_version: 1
+
+env/num_threads:
+  desc: null
+  value: 16
+env/seed:
+  desc: null
+  value: 42
+dataset/name:
+  desc: null
+  value: webqsp
+dataset/text_encoder_name:
+  desc: null
+  value: gte-large-en-v1.5
+retriever/topic_pe:
+  desc: null
+  value: true
+retriever/DDE_kwargs/num_rounds:
+  desc: null
+  value: 2
+retriever/DDE_kwargs/num_reverse_rounds:
+  desc: null
+  value: 2
+optimizer/lr:
+  desc: null
+  value: 0.001
+eval/k_list:
+  desc: null
+  value:
+  - 100
+train/num_epochs:
+  desc: null
+  value: 10000
+train/patience:
+  desc: null
+  value: 10
+train/save_prefix:
+  desc: null
+  value: webqsp
+_wandb:
+  desc: null
+  value:
+    python_version: 3.10.18
+    cli_version: 0.17.4
+    framework: huggingface
+    huggingface_version: 4.43.2
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1752332806
+    t:
+      1:
+      - 1
+      - 11
+      - 49
+      - 55
+      - 77
+      2:
+      - 1
+      - 11
+      - 49
+      - 55
+      - 77
+      3:
+      - 13
+      - 16
+      - 23
+      4: 3.10.18
+      5: 0.17.4
+      6: 4.43.2
+      8:
+      - 5
+      13: linux-x86_64

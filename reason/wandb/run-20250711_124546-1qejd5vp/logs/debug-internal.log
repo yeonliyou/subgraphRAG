@@ -1,0 +1,15 @@
+{"time":"2025-07-11T12:45:46.346543724Z","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"/home/dongcheon/SubgraphRAG/reason/wandb/run-20250711_124546-1qejd5vp/logs/debug-core.log"}
+{"time":"2025-07-11T12:45:46.785605161Z","level":"INFO","msg":"stream: created new stream","id":"1qejd5vp"}
+{"time":"2025-07-11T12:45:46.785782694Z","level":"INFO","msg":"stream: started","id":"1qejd5vp"}
+{"time":"2025-07-11T12:45:46.785808245Z","level":"INFO","msg":"handler: started","stream_id":"1qejd5vp"}
+{"time":"2025-07-11T12:45:46.785820807Z","level":"INFO","msg":"sender: started","stream_id":"1qejd5vp"}
+{"time":"2025-07-11T12:45:46.785917572Z","level":"INFO","msg":"writer: Do: started","stream_id":"1qejd5vp"}
+{"time":"2025-07-11T12:45:47.082791373Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-07-11T12:45:55.47822882Z","level":"INFO","msg":"stream: closing","id":"1qejd5vp"}
+{"time":"2025-07-11T12:45:55.478288368Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-07-11T12:45:55.478451564Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-07-11T12:45:56.023628828Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-07-11T12:45:56.280515303Z","level":"INFO","msg":"handler: closed","stream_id":"1qejd5vp"}
+{"time":"2025-07-11T12:45:56.28057599Z","level":"INFO","msg":"writer: Close: closed","stream_id":"1qejd5vp"}
+{"time":"2025-07-11T12:45:56.280634729Z","level":"INFO","msg":"sender: closed","stream_id":"1qejd5vp"}
+{"time":"2025-07-11T12:45:56.280715975Z","level":"INFO","msg":"stream: closed","id":"1qejd5vp"}

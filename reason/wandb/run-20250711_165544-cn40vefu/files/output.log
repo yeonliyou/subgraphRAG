@@ -1,0 +1,66 @@
+WARNING 07-11 16:55:46 arg_utils.py:839] Chunked prefill is enabled by default for models with max_model_len > 32K. Currently, chunked prefill might not work with some features or models. If you encounter any issues, please disable chunked prefill by setting --enable-chunked-prefill=False.
+INFO 07-11 16:55:46 config.py:911] Chunked prefill is enabled with max_num_batched_tokens=512.
+INFO 07-11 16:55:46 llm_engine.py:184] Initializing an LLM engine (v0.5.5) with config: model='meta-llama/Meta-Llama-3.1-8B-Instruct', speculative_config=None, tokenizer='meta-llama/Meta-Llama-3.1-8B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, rope_scaling=None, rope_theta=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=131072, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, quantization_param_path=None, device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='outlines'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=meta-llama/Meta-Llama-3.1-8B-Instruct, use_v2_block_manager=False, enable_prefix_caching=False)
+INFO 07-11 16:55:48 model_runner.py:879] Starting to load model meta-llama/Meta-Llama-3.1-8B-Instruct...
+INFO 07-11 16:55:50 weight_utils.py:236] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:00<00:00,  5.94it/s]
+Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:00<00:00,  2.01it/s]
+Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:01<00:00,  1.56it/s]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:02<00:00,  1.41it/s]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:02<00:00,  1.59it/s]
+INFO 07-11 16:55:53 model_runner.py:890] Loading model weights took 14.9888 GB
+INFO 07-11 16:55:54 gpu_executor.py:121] # GPU blocks: 13416, # CPU blocks: 2048
+INFO 07-11 16:55:55 model_runner.py:1181] Capturing the model for CUDA graphs. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI.
+INFO 07-11 16:55:55 model_runner.py:1185] CUDA graphs can take additional 1~3 GiB memory per GPU. If you are running out of memory, consider decreasing `gpu_memory_utilization` or enforcing eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 07-11 16:56:06 model_runner.py:1300] Graph capturing finished in 11 secs.
+Loading subgraphs...
+Adding subgraphs to data...
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1628/1628 [01:16<00:00, 21.23it/s]
+Adding good triplets from ROG...
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1628/1628 [00:00<00:00, 23523.65it/s]
+Adding scored triplets...
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1628/1628 [00:00<00:00, 1000047.88it/s]
+Triplets not found for 0 questions
+Generating prompts...
+Starting inference...
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1628/1628 [1:38:37<00:00,  3.63s/it]
+==================================================
+==================================================
+Evaluating on subset: True
+Results:
+Loading subgraphs...
+Adding subgraphs to data...
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████| 1628/1628 [01:17<00:00, 21.09it/s]
+Adding good triplets from ROG...
+100%|███████████████████████████████████████████████████████████████████████████████████████████████| 1628/1628 [00:00<00:00, 23325.17it/s]
+Adding scored triplets...
+100%|██████████████████████████████████████████████████████████████████████████████████████████████| 1628/1628 [00:00<00:00, 897991.44it/s]
+Triplets not found for 0 questions
+1628it [00:01, 1012.03it/s]
+Hit@1: 82.68120590121873, Macro F1: 69.92717765329917, Macro Precision: 79.262069595106, Macro Recall: 70.48012473114045, Exact Match: 50.54522129570237, Totally Wrong: 13.855035279025016, Hal Score: 60.0
+Micro F1: 0.4325940421830832, Micro precision: 0.7771484375, Micro Recall: 0.29971376920759263
+Total number of samples: 1559, no answer samples: 40, ratio: 0.025657472738935216
+Hit: 86.40153944836433
+==================================================
+==================================================
+==================================================
+==================================================
+Evaluating on subset: False
+Results:
+Loading subgraphs...
+Adding subgraphs to data...
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████| 1628/1628 [01:16<00:00, 21.20it/s]
+Adding good triplets from ROG...
+100%|███████████████████████████████████████████████████████████████████████████████████████████████| 1628/1628 [00:00<00:00, 23273.73it/s]
+Adding scored triplets...
+100%|██████████████████████████████████████████████████████████████████████████████████████████████| 1628/1628 [00:00<00:00, 989039.24it/s]
+Triplets not found for 0 questions
+1628it [00:02, 627.92it/s]
+Hit@1: 80.95823095823096, Macro F1: 68.56727921839922, Macro Precision: 77.62230962542925, Macro Recall: 69.15946541397003, Exact Match: 49.75429975429975, Totally Wrong: 15.601965601965603, Hal Score: 82.40212112961679
+Micro F1: 0.41061566782573117, Micro precision: 0.7691570881226054, Micro Recall: 0.28006417410714285
+Total number of samples: 1628, no answer samples: 59, ratio: 0.03624078624078624
+Hit: 84.7051597051597
+==================================================
+==================================================

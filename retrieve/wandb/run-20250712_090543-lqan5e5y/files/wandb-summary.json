@@ -1,0 +1,1 @@
+{"val/epoch": 0, "val/triple_recall@100": 0.04162907458779233, "val/ans_recall@100": 0.30092931338408846, "_timestamp": 1752311155.7241673, "_runtime": 11.722959280014038, "_step": 0, "_wandb": {"runtime": 19}}

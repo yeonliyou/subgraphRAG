@@ -1,0 +1,1 @@
+{"val/epoch": 29, "val/triple_recall@100": 0.8762633367506021, "val/ans_recall@100": 0.9398653957080112, "_timestamp": 1752254268.0451248, "_runtime": 762.3953528404236, "_step": 59, "loss": 0.005982359592034245, "num_patient_epochs": 10, "epoch": 39, "_wandb": {"runtime": 762}}

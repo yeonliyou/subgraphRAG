@@ -1,0 +1,86 @@
+wandb_version: 1
+
+dataset_name:
+  desc: null
+  value: metaqa-3hop
+prompt_mode:
+  desc: null
+  value: scored_100
+score_dict_path:
+  desc: null
+  value: /home/dongcheon/SubgraphRAG/retrieve/metaqa-3hop_Jul17-13:08:20/cpt.pth
+llm_mode:
+  desc: null
+  value: sys_icl_dc
+model_name:
+  desc: null
+  value: meta-llama/Meta-Llama-3.1-8B-Instruct
+split:
+  desc: null
+  value: test
+tensor_parallel_size:
+  desc: null
+  value: 1
+max_seq_len_to_capture:
+  desc: null
+  value: 16384
+max_tokens:
+  desc: null
+  value: 4000
+seed:
+  desc: null
+  value: 0
+temperature:
+  desc: null
+  value: 0
+frequency_penalty:
+  desc: null
+  value: 0.16
+thres:
+  desc: null
+  value: 0.0
+_wandb:
+  desc: null
+  value:
+    python_version: 3.10.14
+    cli_version: 0.17.4
+    framework: huggingface
+    huggingface_version: 4.53.2
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1752763433
+    t:
+      1:
+      - 1
+      - 5
+      - 11
+      - 30
+      - 41
+      - 49
+      - 51
+      - 53
+      - 55
+      - 71
+      - 95
+      2:
+      - 1
+      - 5
+      - 11
+      - 30
+      - 41
+      - 49
+      - 51
+      - 53
+      - 55
+      - 71
+      - 95
+      3:
+      - 13
+      - 16
+      - 23
+      4: 3.10.14
+      5: 0.17.4
+      6: 4.53.2
+      8:
+      - 5
+      13: linux-x86_64

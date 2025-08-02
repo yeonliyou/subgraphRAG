@@ -1,0 +1,190 @@
+2025-07-29 13:12:46,734 INFO    StreamThr :71833 [internal.py:wandb_internal():85] W&B internal server running at pid: 71833, started at: 2025-07-29 13:12:46.734374
+2025-07-29 13:12:46,749 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: status
+2025-07-29 13:12:46,755 INFO    WriterThread:71833 [datastore.py:open_for_write():87] open: /home/dongcheon/SubgraphRAG/retrieve/wandb/run-20250729_131246-23rm0ar4/run-23rm0ar4.wandb
+2025-07-29 13:12:46,755 DEBUG   SenderThread:71833 [sender.py:send():379] send: header
+2025-07-29 13:12:46,755 DEBUG   SenderThread:71833 [sender.py:send():379] send: run
+2025-07-29 13:12:47,370 INFO    SenderThread:71833 [dir_watcher.py:__init__():211] watching files in: /home/dongcheon/SubgraphRAG/retrieve/wandb/run-20250729_131246-23rm0ar4/files
+2025-07-29 13:12:47,370 INFO    SenderThread:71833 [sender.py:_start_run_threads():1188] run started: 23rm0ar4 with start time 1753794766.735634
+2025-07-29 13:12:47,378 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: check_version
+2025-07-29 13:12:47,379 DEBUG   SenderThread:71833 [sender.py:send_request():406] send_request: check_version
+2025-07-29 13:12:47,430 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: run_start
+2025-07-29 13:12:47,465 DEBUG   HandlerThread:71833 [system_info.py:__init__():26] System info init
+2025-07-29 13:12:47,465 DEBUG   HandlerThread:71833 [system_info.py:__init__():41] System info init done
+2025-07-29 13:12:47,465 INFO    HandlerThread:71833 [system_monitor.py:start():194] Starting system monitor
+2025-07-29 13:12:47,478 INFO    SystemMonitor:71833 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2025-07-29 13:12:47,478 INFO    HandlerThread:71833 [system_monitor.py:probe():214] Collecting system info
+2025-07-29 13:12:47,484 INFO    SystemMonitor:71833 [interfaces.py:start():188] Started cpu monitoring
+2025-07-29 13:12:47,497 INFO    SystemMonitor:71833 [interfaces.py:start():188] Started disk monitoring
+2025-07-29 13:12:47,504 INFO    SystemMonitor:71833 [interfaces.py:start():188] Started gpu monitoring
+2025-07-29 13:12:47,507 INFO    SystemMonitor:71833 [interfaces.py:start():188] Started memory monitoring
+2025-07-29 13:12:47,508 INFO    SystemMonitor:71833 [interfaces.py:start():188] Started network monitoring
+2025-07-29 13:12:47,551 DEBUG   HandlerThread:71833 [system_info.py:probe():152] Probing system
+2025-07-29 13:12:47,553 DEBUG   HandlerThread:71833 [system_info.py:_probe_git():137] Probing git
+2025-07-29 13:12:47,558 DEBUG   HandlerThread:71833 [system_info.py:_probe_git():145] Probing git done
+2025-07-29 13:12:47,558 DEBUG   HandlerThread:71833 [system_info.py:probe():200] Probing system done
+2025-07-29 13:12:47,558 DEBUG   HandlerThread:71833 [system_monitor.py:probe():223] {'os': 'Linux-5.15.0-144-generic-x86_64-with-glibc2.35', 'python': '3.10.14', 'heartbeatAt': '2025-07-29T13:12:47.551983', 'startedAt': '2025-07-29T13:12:46.730135', 'docker': None, 'cuda': None, 'args': ('-d', 'metaqa-3hop'), 'state': 'running', 'program': '/home/dongcheon/SubgraphRAG/retrieve/train.py', 'codePathLocal': 'train.py', 'codePath': 'retrieve/train.py', 'git': {'remote': 'https://github.com/leedongcheon/SubgraphRAG-1.git', 'commit': 'cc7c2cd26790ea2b897528371cfc67627112d547'}, 'email': 'leedongcheon@github.com', 'root': '/home/dongcheon/SubgraphRAG', 'host': 'glis2', 'username': 'dongcheon', 'executable': '/home/dongcheon/miniconda3/envs/retriever/bin/python', 'cpu_count': 64, 'cpu_count_logical': 128, 'cpu_freq': {'current': 2530.543093749999, 'min': 800.0, 'max': 3400.0}, 'cpu_freq_per_core': [{'current': 2570.4, 'min': 800.0, 'max': 3400.0}, {'current': 2569.859, 'min': 800.0, 'max': 3400.0}, {'current': 2566.486, 'min': 800.0, 'max': 3400.0}, {'current': 2569.888, 'min': 800.0, 'max': 3400.0}, {'current': 2567.143, 'min': 800.0, 'max': 3400.0}, {'current': 2569.901, 'min': 800.0, 'max': 3400.0}, {'current': 2575.049, 'min': 800.0, 'max': 3400.0}, {'current': 2569.985, 'min': 800.0, 'max': 3400.0}, {'current': 2566.459, 'min': 800.0, 'max': 3400.0}, {'current': 2569.269, 'min': 800.0, 'max': 3400.0}, {'current': 2565.089, 'min': 800.0, 'max': 3400.0}, {'current': 2569.442, 'min': 800.0, 'max': 3400.0}, {'current': 2572.002, 'min': 800.0, 'max': 3400.0}, {'current': 2565.677, 'min': 800.0, 'max': 3400.0}, {'current': 2571.06, 'min': 800.0, 'max': 3400.0}, {'current': 2571.98, 'min': 800.0, 'max': 3400.0}, {'current': 2572.828, 'min': 800.0, 'max': 3400.0}, {'current': 2571.578, 'min': 800.0, 'max': 3400.0}, {'current': 2570.32, 'min': 800.0, 'max': 3400.0}, {'current': 2568.725, 'min': 800.0, 'max': 3400.0}, {'current': 2570.854, 'min': 800.0, 'max': 3400.0}, {'current': 2566.826, 'min': 800.0, 'max': 3400.0}, {'current': 2551.443, 'min': 800.0, 'max': 3400.0}, {'current': 2569.296, 'min': 800.0, 'max': 3400.0}, {'current': 2569.978, 'min': 800.0, 'max': 3400.0}, {'current': 2564.125, 'min': 800.0, 'max': 3400.0}, {'current': 2569.746, 'min': 800.0, 'max': 3400.0}, {'current': 2571.798, 'min': 800.0, 'max': 3400.0}, {'current': 2569.831, 'min': 800.0, 'max': 3400.0}, {'current': 2570.144, 'min': 800.0, 'max': 3400.0}, {'current': 2571.21, 'min': 800.0, 'max': 3400.0}, {'current': 2571.812, 'min': 800.0, 'max': 3400.0}, {'current': 2569.148, 'min': 800.0, 'max': 3400.0}, {'current': 2554.858, 'min': 800.0, 'max': 3400.0}, {'current': 2568.421, 'min': 800.0, 'max': 3400.0}, {'current': 2569.548, 'min': 800.0, 'max': 3400.0}, {'current': 2551.16, 'min': 800.0, 'max': 3400.0}, {'current': 2569.629, 'min': 800.0, 'max': 3400.0}, {'current': 2580.974, 'min': 800.0, 'max': 3400.0}, {'current': 2540.651, 'min': 800.0, 'max': 3400.0}, {'current': 2570.584, 'min': 800.0, 'max': 3400.0}, {'current': 2567.193, 'min': 800.0, 'max': 3400.0}, {'current': 2568.614, 'min': 800.0, 'max': 3400.0}, {'current': 2569.614, 'min': 800.0, 'max': 3400.0}, {'current': 2572.056, 'min': 800.0, 'max': 3400.0}, {'current': 2565.848, 'min': 800.0, 'max': 3400.0}, {'current': 2566.529, 'min': 800.0, 'max': 3400.0}, {'current': 2565.411, 'min': 800.0, 'max': 3400.0}, {'current': 2569.281, 'min': 800.0, 'max': 3400.0}, {'current': 2568.88, 'min': 800.0, 'max': 3400.0}, {'current': 2568.489, 'min': 800.0, 'max': 3400.0}, {'current': 2568.937, 'min': 800.0, 'max': 3400.0}, {'current': 2570.653, 'min': 800.0, 'max': 3400.0}, {'current': 2542.968, 'min': 800.0, 'max': 3400.0}, {'current': 2570.146, 'min': 800.0, 'max': 3400.0}, {'current': 2569.077, 'min': 800.0, 'max': 3400.0}, {'current': 2566.671, 'min': 800.0, 'max': 3400.0}, {'current': 2569.07, 'min': 800.0, 'max': 3400.0}, {'current': 2570.749, 'min': 800.0, 'max': 3400.0}, {'current': 2570.129, 'min': 800.0, 'max': 3400.0}, {'current': 2568.811, 'min': 800.0, 'max': 3400.0}, {'current': 2569.888, 'min': 800.0, 'max': 3400.0}, {'current': 2566.569, 'min': 800.0, 'max': 3400.0}, {'current': 2569.597, 'min': 800.0, 'max': 3400.0}, {'current': 2570.385, 'min': 800.0, 'max': 3400.0}, {'current': 2569.777, 'min': 800.0, 'max': 3400.0}, {'current': 2566.475, 'min': 800.0, 'max': 3400.0}, {'current': 2569.904, 'min': 800.0, 'max': 3400.0}, {'current': 2518.619, 'min': 800.0, 'max': 3400.0}, {'current': 2523.455, 'min': 800.0, 'max': 3400.0}, {'current': 2530.105, 'min': 800.0, 'max': 3400.0}, {'current': 2527.542, 'min': 800.0, 'max': 3400.0}, {'current': 2526.729, 'min': 800.0, 'max': 3400.0}, {'current': 2528.82, 'min': 800.0, 'max': 3400.0}, {'current': 2529.529, 'min': 800.0, 'max': 3400.0}, {'current': 2535.381, 'min': 800.0, 'max': 3400.0}, {'current': 2533.607, 'min': 800.0, 'max': 3400.0}, {'current': 2558.861, 'min': 800.0, 'max': 3400.0}, {'current': 2558.727, 'min': 800.0, 'max': 3400.0}, {'current': 2564.581, 'min': 800.0, 'max': 3400.0}, {'current': 2562.684, 'min': 800.0, 'max': 3400.0}, {'current': 2563.683, 'min': 800.0, 'max': 3400.0}, {'current': 2560.947, 'min': 800.0, 'max': 3400.0}, {'current': 2565.68, 'min': 800.0, 'max': 3400.0}, {'current': 2569.336, 'min': 800.0, 'max': 3400.0}, {'current': 2564.19, 'min': 800.0, 'max': 3400.0}, {'current': 2520.715, 'min': 800.0, 'max': 3400.0}, {'current': 2567.109, 'min': 800.0, 'max': 3400.0}, {'current': 2567.645, 'min': 800.0, 'max': 3400.0}, {'current': 2588.068, 'min': 800.0, 'max': 3400.0}, {'current': 2594.319, 'min': 800.0, 'max': 3400.0}, {'current': 2587.585, 'min': 800.0, 'max': 3400.0}, {'current': 2589.963, 'min': 800.0, 'max': 3400.0}, {'current': 2589.144, 'min': 800.0, 'max': 3400.0}, {'current': 2588.851, 'min': 800.0, 'max': 3400.0}, {'current': 2588.692, 'min': 800.0, 'max': 3400.0}, {'current': 2592.691, 'min': 800.0, 'max': 3400.0}, {'current': 2527.081, 'min': 800.0, 'max': 3400.0}, {'current': 2592.276, 'min': 800.0, 'max': 3400.0}, {'current': 2594.153, 'min': 800.0, 'max': 3400.0}, {'current': 2529.625, 'min': 800.0, 'max': 3400.0}, {'current': 2596.086, 'min': 800.0, 'max': 3400.0}, {'current': 2582.46, 'min': 800.0, 'max': 3400.0}, {'current': 2546.895, 'min': 800.0, 'max': 3400.0}, {'current': 2599.997, 'min': 800.0, 'max': 3400.0}, {'current': 2600.0, 'min': 800.0, 'max': 3400.0}, {'current': 2600.0, 'min': 800.0, 'max': 3400.0}, {'current': 2599.994, 'min': 800.0, 'max': 3400.0}, {'current': 2599.413, 'min': 800.0, 'max': 3400.0}, {'current': 2600.0, 'min': 800.0, 'max': 3400.0}, {'current': 2587.224, 'min': 800.0, 'max': 3400.0}, {'current': 2600.0, 'min': 800.0, 'max': 3400.0}, {'current': 2600.07, 'min': 800.0, 'max': 3400.0}, {'current': 2600.0, 'min': 800.0, 'max': 3400.0}, {'current': 2600.0, 'min': 800.0, 'max': 3400.0}, {'current': 2600.0, 'min': 800.0, 'max': 3400.0}, {'current': 2600.0, 'min': 800.0, 'max': 3400.0}, {'current': 2584.496, 'min': 800.0, 'max': 3400.0}, {'current': 2600.002, 'min': 800.0, 'max': 3400.0}, {'current': 2599.878, 'min': 800.0, 'max': 3400.0}, {'current': 2600.002, 'min': 800.0, 'max': 3400.0}, {'current': 2599.997, 'min': 800.0, 'max': 3400.0}, {'current': 2600.0, 'min': 800.0, 'max': 3400.0}, {'current': 2599.997, 'min': 800.0, 'max': 3400.0}, {'current': 2600.002, 'min': 800.0, 'max': 3400.0}, {'current': 2599.934, 'min': 800.0, 'max': 3400.0}, {'current': 2600.002, 'min': 800.0, 'max': 3400.0}, {'current': 2600.002, 'min': 800.0, 'max': 3400.0}], 'disk': {'/': {'total': 1758.3150215148926, 'used': 739.2317047119141}}, 'gpu': 'NVIDIA RTX 6000 Ada Generation', 'gpu_count': 6, 'gpu_devices': [{'name': 'NVIDIA RTX 6000 Ada Generation', 'memory_total': 51527024640}, {'name': 'NVIDIA RTX 6000 Ada Generation', 'memory_total': 51527024640}, {'name': 'NVIDIA RTX 6000 Ada Generation', 'memory_total': 51527024640}, {'name': 'NVIDIA RTX 6000 Ada Generation', 'memory_total': 51527024640}, {'name': 'NVIDIA RTX 6000 Ada Generation', 'memory_total': 51527024640}, {'name': 'NVIDIA RTX 6000 Ada Generation', 'memory_total': 51527024640}], 'memory': {'total': 1007.5193328857422}}
+2025-07-29 13:12:47,559 INFO    HandlerThread:71833 [system_monitor.py:probe():224] Finished collecting system info
+2025-07-29 13:12:47,559 INFO    HandlerThread:71833 [system_monitor.py:probe():227] Publishing system info
+2025-07-29 13:12:47,559 DEBUG   HandlerThread:71833 [system_info.py:_save_conda():209] Saving list of conda packages installed into the current environment
+2025-07-29 13:12:48,372 INFO    Thread-12 :71833 [dir_watcher.py:_on_file_created():271] file/dir created: /home/dongcheon/SubgraphRAG/retrieve/wandb/run-20250729_131246-23rm0ar4/files/conda-environment.yaml
+2025-07-29 13:12:51,679 DEBUG   HandlerThread:71833 [system_info.py:_save_conda():224] Saving conda packages done
+2025-07-29 13:12:51,680 INFO    HandlerThread:71833 [system_monitor.py:probe():229] Finished publishing system info
+2025-07-29 13:12:51,682 DEBUG   SenderThread:71833 [sender.py:send():379] send: files
+2025-07-29 13:12:51,682 INFO    SenderThread:71833 [sender.py:_save_file():1454] saving file wandb-metadata.json with policy now
+2025-07-29 13:12:51,827 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: python_packages
+2025-07-29 13:12:51,827 DEBUG   SenderThread:71833 [sender.py:send_request():406] send_request: python_packages
+2025-07-29 13:12:51,827 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: stop_status
+2025-07-29 13:12:51,828 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: status_report
+2025-07-29 13:12:51,828 DEBUG   SenderThread:71833 [sender.py:send_request():406] send_request: stop_status
+2025-07-29 13:12:52,135 DEBUG   SenderThread:71833 [sender.py:send():379] send: telemetry
+2025-07-29 13:12:52,136 DEBUG   SenderThread:71833 [sender.py:send():379] send: exit
+2025-07-29 13:12:52,136 INFO    SenderThread:71833 [sender.py:send_exit():586] handling exit code: 1
+2025-07-29 13:12:52,136 INFO    SenderThread:71833 [sender.py:send_exit():588] handling runtime: 4
+2025-07-29 13:12:52,137 INFO    SenderThread:71833 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-07-29 13:12:52,137 INFO    SenderThread:71833 [sender.py:send_exit():594] send defer
+2025-07-29 13:12:52,137 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: defer
+2025-07-29 13:12:52,137 INFO    HandlerThread:71833 [handler.py:handle_request_defer():184] handle defer: 0
+2025-07-29 13:12:52,137 DEBUG   SenderThread:71833 [sender.py:send_request():406] send_request: defer
+2025-07-29 13:12:52,137 INFO    SenderThread:71833 [sender.py:send_request_defer():610] handle sender defer: 0
+2025-07-29 13:12:52,137 INFO    SenderThread:71833 [sender.py:transition_state():614] send defer: 1
+2025-07-29 13:12:52,138 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: defer
+2025-07-29 13:12:52,138 INFO    HandlerThread:71833 [handler.py:handle_request_defer():184] handle defer: 1
+2025-07-29 13:12:52,138 DEBUG   SenderThread:71833 [sender.py:send_request():406] send_request: defer
+2025-07-29 13:12:52,138 INFO    SenderThread:71833 [sender.py:send_request_defer():610] handle sender defer: 1
+2025-07-29 13:12:52,138 INFO    SenderThread:71833 [sender.py:transition_state():614] send defer: 2
+2025-07-29 13:12:52,138 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: defer
+2025-07-29 13:12:52,138 INFO    HandlerThread:71833 [handler.py:handle_request_defer():184] handle defer: 2
+2025-07-29 13:12:52,138 INFO    HandlerThread:71833 [system_monitor.py:finish():203] Stopping system monitor
+2025-07-29 13:12:52,138 DEBUG   SystemMonitor:71833 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2025-07-29 13:12:52,139 INFO    HandlerThread:71833 [interfaces.py:finish():200] Joined cpu monitor
+2025-07-29 13:12:52,139 DEBUG   SystemMonitor:71833 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2025-07-29 13:12:52,139 INFO    HandlerThread:71833 [interfaces.py:finish():200] Joined disk monitor
+2025-07-29 13:12:52,140 DEBUG   SystemMonitor:71833 [system_monitor.py:_start():183] Publishing last batch of metrics
+2025-07-29 13:12:52,372 INFO    Thread-12 :71833 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dongcheon/SubgraphRAG/retrieve/wandb/run-20250729_131246-23rm0ar4/files/conda-environment.yaml
+2025-07-29 13:12:52,372 INFO    Thread-12 :71833 [dir_watcher.py:_on_file_created():271] file/dir created: /home/dongcheon/SubgraphRAG/retrieve/wandb/run-20250729_131246-23rm0ar4/files/output.log
+2025-07-29 13:12:52,372 INFO    Thread-12 :71833 [dir_watcher.py:_on_file_created():271] file/dir created: /home/dongcheon/SubgraphRAG/retrieve/wandb/run-20250729_131246-23rm0ar4/files/requirements.txt
+2025-07-29 13:12:52,372 INFO    Thread-12 :71833 [dir_watcher.py:_on_file_created():271] file/dir created: /home/dongcheon/SubgraphRAG/retrieve/wandb/run-20250729_131246-23rm0ar4/files/wandb-summary.json
+2025-07-29 13:12:52,373 INFO    Thread-12 :71833 [dir_watcher.py:_on_file_created():271] file/dir created: /home/dongcheon/SubgraphRAG/retrieve/wandb/run-20250729_131246-23rm0ar4/files/wandb-metadata.json
+2025-07-29 13:12:52,451 INFO    wandb-upload_0:71833 [upload_job.py:push():130] Uploaded file /tmp/tmpev97r8qmwandb/1nryt49o-wandb-metadata.json
+2025-07-29 13:12:52,880 INFO    HandlerThread:71833 [interfaces.py:finish():200] Joined gpu monitor
+2025-07-29 13:12:52,880 INFO    HandlerThread:71833 [interfaces.py:finish():200] Joined memory monitor
+2025-07-29 13:12:52,881 INFO    HandlerThread:71833 [interfaces.py:finish():200] Joined network monitor
+2025-07-29 13:12:52,881 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: poll_exit
+2025-07-29 13:12:52,881 DEBUG   SenderThread:71833 [sender.py:send_request():406] send_request: defer
+2025-07-29 13:12:52,881 INFO    SenderThread:71833 [sender.py:send_request_defer():610] handle sender defer: 2
+2025-07-29 13:12:52,881 INFO    SenderThread:71833 [sender.py:transition_state():614] send defer: 3
+2025-07-29 13:12:52,882 DEBUG   SenderThread:71833 [sender.py:send():379] send: stats
+2025-07-29 13:12:52,882 DEBUG   SenderThread:71833 [sender.py:send_request():406] send_request: poll_exit
+2025-07-29 13:12:52,882 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: defer
+2025-07-29 13:12:52,882 INFO    HandlerThread:71833 [handler.py:handle_request_defer():184] handle defer: 3
+2025-07-29 13:12:52,883 DEBUG   SenderThread:71833 [sender.py:send_request():406] send_request: defer
+2025-07-29 13:12:52,883 INFO    SenderThread:71833 [sender.py:send_request_defer():610] handle sender defer: 3
+2025-07-29 13:12:52,883 INFO    SenderThread:71833 [sender.py:transition_state():614] send defer: 4
+2025-07-29 13:12:52,883 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: defer
+2025-07-29 13:12:52,883 INFO    HandlerThread:71833 [handler.py:handle_request_defer():184] handle defer: 4
+2025-07-29 13:12:52,883 DEBUG   SenderThread:71833 [sender.py:send_request():406] send_request: defer
+2025-07-29 13:12:52,883 INFO    SenderThread:71833 [sender.py:send_request_defer():610] handle sender defer: 4
+2025-07-29 13:12:52,883 INFO    SenderThread:71833 [sender.py:transition_state():614] send defer: 5
+2025-07-29 13:12:52,883 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: defer
+2025-07-29 13:12:52,883 INFO    HandlerThread:71833 [handler.py:handle_request_defer():184] handle defer: 5
+2025-07-29 13:12:52,883 DEBUG   SenderThread:71833 [sender.py:send():379] send: summary
+2025-07-29 13:12:52,884 INFO    SenderThread:71833 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-07-29 13:12:52,884 DEBUG   SenderThread:71833 [sender.py:send_request():406] send_request: defer
+2025-07-29 13:12:52,884 INFO    SenderThread:71833 [sender.py:send_request_defer():610] handle sender defer: 5
+2025-07-29 13:12:52,884 INFO    SenderThread:71833 [sender.py:transition_state():614] send defer: 6
+2025-07-29 13:12:52,884 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: defer
+2025-07-29 13:12:52,884 INFO    HandlerThread:71833 [handler.py:handle_request_defer():184] handle defer: 6
+2025-07-29 13:12:52,884 DEBUG   SenderThread:71833 [sender.py:send_request():406] send_request: defer
+2025-07-29 13:12:52,884 INFO    SenderThread:71833 [sender.py:send_request_defer():610] handle sender defer: 6
+2025-07-29 13:12:52,888 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: status_report
+2025-07-29 13:12:53,141 INFO    SenderThread:71833 [sender.py:transition_state():614] send defer: 7
+2025-07-29 13:12:53,141 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: defer
+2025-07-29 13:12:53,141 INFO    HandlerThread:71833 [handler.py:handle_request_defer():184] handle defer: 7
+2025-07-29 13:12:53,142 DEBUG   SenderThread:71833 [sender.py:send_request():406] send_request: defer
+2025-07-29 13:12:53,142 INFO    SenderThread:71833 [sender.py:send_request_defer():610] handle sender defer: 7
+2025-07-29 13:12:53,372 INFO    Thread-12 :71833 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dongcheon/SubgraphRAG/retrieve/wandb/run-20250729_131246-23rm0ar4/files/config.yaml
+2025-07-29 13:12:53,372 INFO    Thread-12 :71833 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dongcheon/SubgraphRAG/retrieve/wandb/run-20250729_131246-23rm0ar4/files/wandb-summary.json
+2025-07-29 13:12:53,832 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: poll_exit
+2025-07-29 13:12:54,141 INFO    SenderThread:71833 [sender.py:transition_state():614] send defer: 8
+2025-07-29 13:12:54,142 DEBUG   SenderThread:71833 [sender.py:send_request():406] send_request: poll_exit
+2025-07-29 13:12:54,142 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: defer
+2025-07-29 13:12:54,142 INFO    HandlerThread:71833 [handler.py:handle_request_defer():184] handle defer: 8
+2025-07-29 13:12:54,142 DEBUG   SenderThread:71833 [sender.py:send_request():406] send_request: defer
+2025-07-29 13:12:54,142 INFO    SenderThread:71833 [sender.py:send_request_defer():610] handle sender defer: 8
+2025-07-29 13:12:54,142 INFO    SenderThread:71833 [job_builder.py:build():440] Attempting to build job artifact
+2025-07-29 13:12:54,143 INFO    SenderThread:71833 [job_builder.py:_get_source_type():569] is repo sourced job
+2025-07-29 13:12:54,172 INFO    SenderThread:71833 [job_builder.py:build():545] adding wandb-job metadata file
+2025-07-29 13:12:54,174 INFO    SenderThread:71833 [sender.py:transition_state():614] send defer: 9
+2025-07-29 13:12:54,174 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: defer
+2025-07-29 13:12:54,174 INFO    HandlerThread:71833 [handler.py:handle_request_defer():184] handle defer: 9
+2025-07-29 13:12:54,174 DEBUG   SenderThread:71833 [sender.py:send():379] send: artifact
+2025-07-29 13:12:54,373 INFO    Thread-12 :71833 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dongcheon/SubgraphRAG/retrieve/wandb/run-20250729_131246-23rm0ar4/files/output.log
+2025-07-29 13:12:54,832 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: poll_exit
+2025-07-29 13:12:55,256 INFO    SenderThread:71833 [sender.py:send_artifact():1530] sent artifact job-https___github.com_leedongcheon_SubgraphRAG-1.git_retrieve_train.py - {'id': 'QXJ0aWZhY3Q6MTkxNDExNzMyNA==', 'state': 'COMMITTED', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjY4OTQ3MDY2Ng==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6MTkxNDExNzMyNA==', 'versionIndex': 2}}}
+2025-07-29 13:12:55,257 DEBUG   SenderThread:71833 [sender.py:send_request():406] send_request: defer
+2025-07-29 13:12:55,257 INFO    SenderThread:71833 [sender.py:send_request_defer():610] handle sender defer: 9
+2025-07-29 13:12:55,257 INFO    SenderThread:71833 [dir_watcher.py:finish():358] shutting down directory watcher
+2025-07-29 13:12:55,373 INFO    SenderThread:71833 [dir_watcher.py:finish():388] scan: /home/dongcheon/SubgraphRAG/retrieve/wandb/run-20250729_131246-23rm0ar4/files
+2025-07-29 13:12:55,373 INFO    SenderThread:71833 [dir_watcher.py:finish():402] scan save: /home/dongcheon/SubgraphRAG/retrieve/wandb/run-20250729_131246-23rm0ar4/files/wandb-summary.json wandb-summary.json
+2025-07-29 13:12:55,374 INFO    SenderThread:71833 [dir_watcher.py:finish():402] scan save: /home/dongcheon/SubgraphRAG/retrieve/wandb/run-20250729_131246-23rm0ar4/files/output.log output.log
+2025-07-29 13:12:55,374 INFO    SenderThread:71833 [dir_watcher.py:finish():402] scan save: /home/dongcheon/SubgraphRAG/retrieve/wandb/run-20250729_131246-23rm0ar4/files/conda-environment.yaml conda-environment.yaml
+2025-07-29 13:12:55,376 INFO    SenderThread:71833 [dir_watcher.py:finish():402] scan save: /home/dongcheon/SubgraphRAG/retrieve/wandb/run-20250729_131246-23rm0ar4/files/requirements.txt requirements.txt
+2025-07-29 13:12:55,376 INFO    SenderThread:71833 [dir_watcher.py:finish():402] scan save: /home/dongcheon/SubgraphRAG/retrieve/wandb/run-20250729_131246-23rm0ar4/files/config.yaml config.yaml
+2025-07-29 13:12:55,376 INFO    SenderThread:71833 [dir_watcher.py:finish():402] scan save: /home/dongcheon/SubgraphRAG/retrieve/wandb/run-20250729_131246-23rm0ar4/files/wandb-metadata.json wandb-metadata.json
+2025-07-29 13:12:55,376 INFO    SenderThread:71833 [sender.py:transition_state():614] send defer: 10
+2025-07-29 13:12:55,376 DEBUG   SenderThread:71833 [sender.py:send_request():406] send_request: poll_exit
+2025-07-29 13:12:55,376 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: defer
+2025-07-29 13:12:55,376 INFO    HandlerThread:71833 [handler.py:handle_request_defer():184] handle defer: 10
+2025-07-29 13:12:55,377 DEBUG   SenderThread:71833 [sender.py:send_request():406] send_request: defer
+2025-07-29 13:12:55,377 INFO    SenderThread:71833 [sender.py:send_request_defer():610] handle sender defer: 10
+2025-07-29 13:12:55,377 INFO    SenderThread:71833 [file_pusher.py:finish():169] shutting down file pusher
+2025-07-29 13:12:55,833 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: poll_exit
+2025-07-29 13:12:55,834 DEBUG   SenderThread:71833 [sender.py:send_request():406] send_request: poll_exit
+2025-07-29 13:12:55,861 INFO    wandb-upload_0:71833 [upload_job.py:push():130] Uploaded file /home/dongcheon/SubgraphRAG/retrieve/wandb/run-20250729_131246-23rm0ar4/files/wandb-summary.json
+2025-07-29 13:12:55,891 INFO    wandb-upload_1:71833 [upload_job.py:push():130] Uploaded file /home/dongcheon/SubgraphRAG/retrieve/wandb/run-20250729_131246-23rm0ar4/files/output.log
+2025-07-29 13:12:55,924 INFO    wandb-upload_2:71833 [upload_job.py:push():130] Uploaded file /home/dongcheon/SubgraphRAG/retrieve/wandb/run-20250729_131246-23rm0ar4/files/conda-environment.yaml
+2025-07-29 13:12:55,933 INFO    wandb-upload_4:71833 [upload_job.py:push():130] Uploaded file /home/dongcheon/SubgraphRAG/retrieve/wandb/run-20250729_131246-23rm0ar4/files/config.yaml
+2025-07-29 13:12:55,951 INFO    wandb-upload_3:71833 [upload_job.py:push():130] Uploaded file /home/dongcheon/SubgraphRAG/retrieve/wandb/run-20250729_131246-23rm0ar4/files/requirements.txt
+2025-07-29 13:12:56,151 INFO    Thread-11 (_thread_body):71833 [sender.py:transition_state():614] send defer: 11
+2025-07-29 13:12:56,151 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: defer
+2025-07-29 13:12:56,152 INFO    HandlerThread:71833 [handler.py:handle_request_defer():184] handle defer: 11
+2025-07-29 13:12:56,152 DEBUG   SenderThread:71833 [sender.py:send_request():406] send_request: defer
+2025-07-29 13:12:56,152 INFO    SenderThread:71833 [sender.py:send_request_defer():610] handle sender defer: 11
+2025-07-29 13:12:56,152 INFO    SenderThread:71833 [file_pusher.py:join():175] waiting for file pusher
+2025-07-29 13:12:56,152 INFO    SenderThread:71833 [sender.py:transition_state():614] send defer: 12
+2025-07-29 13:12:56,152 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: defer
+2025-07-29 13:12:56,152 INFO    HandlerThread:71833 [handler.py:handle_request_defer():184] handle defer: 12
+2025-07-29 13:12:56,152 DEBUG   SenderThread:71833 [sender.py:send_request():406] send_request: defer
+2025-07-29 13:12:56,152 INFO    SenderThread:71833 [sender.py:send_request_defer():610] handle sender defer: 12
+2025-07-29 13:12:56,152 INFO    SenderThread:71833 [file_stream.py:finish():601] file stream finish called
+2025-07-29 13:12:56,397 INFO    SenderThread:71833 [file_stream.py:finish():605] file stream finish is done
+2025-07-29 13:12:56,397 INFO    SenderThread:71833 [sender.py:transition_state():614] send defer: 13
+2025-07-29 13:12:56,397 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: defer
+2025-07-29 13:12:56,397 INFO    HandlerThread:71833 [handler.py:handle_request_defer():184] handle defer: 13
+2025-07-29 13:12:56,397 DEBUG   SenderThread:71833 [sender.py:send_request():406] send_request: defer
+2025-07-29 13:12:56,397 INFO    SenderThread:71833 [sender.py:send_request_defer():610] handle sender defer: 13
+2025-07-29 13:12:56,397 INFO    SenderThread:71833 [sender.py:transition_state():614] send defer: 14
+2025-07-29 13:12:56,397 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: defer
+2025-07-29 13:12:56,397 INFO    HandlerThread:71833 [handler.py:handle_request_defer():184] handle defer: 14
+2025-07-29 13:12:56,398 DEBUG   SenderThread:71833 [sender.py:send():379] send: final
+2025-07-29 13:12:56,398 DEBUG   SenderThread:71833 [sender.py:send():379] send: footer
+2025-07-29 13:12:56,398 DEBUG   SenderThread:71833 [sender.py:send_request():406] send_request: defer
+2025-07-29 13:12:56,398 INFO    SenderThread:71833 [sender.py:send_request_defer():610] handle sender defer: 14
+2025-07-29 13:12:56,398 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: poll_exit
+2025-07-29 13:12:56,398 DEBUG   SenderThread:71833 [sender.py:send_request():406] send_request: poll_exit
+2025-07-29 13:12:56,399 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: server_info
+2025-07-29 13:12:56,399 DEBUG   SenderThread:71833 [sender.py:send_request():406] send_request: server_info
+2025-07-29 13:12:56,400 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: poll_exit
+2025-07-29 13:12:56,401 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: get_summary
+2025-07-29 13:12:56,401 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: sampled_history
+2025-07-29 13:12:56,401 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: internal_messages
+2025-07-29 13:12:56,599 DEBUG   SenderThread:71833 [sender.py:send_request():406] send_request: poll_exit
+2025-07-29 13:12:56,599 INFO    MainThread:71833 [wandb_run.py:_footer_history_summary_info():3991] rendering history
+2025-07-29 13:12:56,599 INFO    MainThread:71833 [wandb_run.py:_footer_history_summary_info():4023] rendering summary
+2025-07-29 13:12:56,599 INFO    MainThread:71833 [wandb_run.py:_footer_sync_info():3950] logging synced files
+2025-07-29 13:12:56,600 DEBUG   HandlerThread:71833 [handler.py:handle_request():158] handle_request: shutdown
+2025-07-29 13:12:56,600 INFO    HandlerThread:71833 [handler.py:finish():882] shutting down handler
+2025-07-29 13:12:57,401 INFO    WriterThread:71833 [datastore.py:close():296] close: /home/dongcheon/SubgraphRAG/retrieve/wandb/run-20250729_131246-23rm0ar4/run-23rm0ar4.wandb
+2025-07-29 13:12:57,599 INFO    SenderThread:71833 [sender.py:finish():1608] shutting down sender
+2025-07-29 13:12:57,599 INFO    SenderThread:71833 [file_pusher.py:finish():169] shutting down file pusher
+2025-07-29 13:12:57,599 INFO    SenderThread:71833 [file_pusher.py:join():175] waiting for file pusher

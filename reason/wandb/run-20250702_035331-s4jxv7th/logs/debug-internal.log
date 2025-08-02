@@ -1,0 +1,7 @@
+{"time":"2025-07-02T03:53:31.480014347Z","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"/home/dongcheon/SubgraphRAG/reason/wandb/run-20250702_035331-s4jxv7th/logs/debug-core.log"}
+{"time":"2025-07-02T03:53:31.798517202Z","level":"INFO","msg":"stream: created new stream","id":"s4jxv7th"}
+{"time":"2025-07-02T03:53:31.798583177Z","level":"INFO","msg":"stream: started","id":"s4jxv7th"}
+{"time":"2025-07-02T03:53:31.798613113Z","level":"INFO","msg":"writer: Do: started","stream_id":"s4jxv7th"}
+{"time":"2025-07-02T03:53:31.798630422Z","level":"INFO","msg":"sender: started","stream_id":"s4jxv7th"}
+{"time":"2025-07-02T03:53:31.79875323Z","level":"INFO","msg":"handler: started","stream_id":"s4jxv7th"}
+{"time":"2025-07-02T03:53:32.1127498Z","level":"INFO","msg":"Starting system monitor"}
