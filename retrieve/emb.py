@@ -39,9 +39,14 @@ def main(args):
     else:
         input_file = os.path.join('rmanluo', 'RoG-webqsp')
 
-    train_set = load_dataset(input_file, split="train")
-    val_set = load_dataset(input_file, split="validation")
-    test_set = load_dataset(input_file, split="test")
+    if args.dataset == 'metaqa-3hop':
+        train_set = load_dataset(input_file, split="train").shuffle(seed=42).select(range(int(load_dataset(input_file, split="train").num_rows * 0.1)))
+        val_set = load_dataset(input_file, split="validation").shuffle(seed=42).select(range(int(load_dataset(input_file, split="validation").num_rows * 0.1)))
+        test_set = load_dataset(input_file, split="test").shuffle(seed=42).select(range(int(load_dataset(input_file, split="test").num_rows * 0.1)))
+    else:
+        train_set = load_dataset(input_file, split="train")
+        val_set = load_dataset(input_file, split="validation")
+        test_set = load_dataset(input_file, split="test")
     
     entity_identifiers = []
     with open(config['entity_identifier_file'], 'r') as f:
