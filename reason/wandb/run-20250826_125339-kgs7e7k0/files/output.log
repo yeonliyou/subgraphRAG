@@ -1,0 +1,43 @@
+INFO 08-26 12:53:49 [config.py:1604] Using max model len 131072
+INFO 08-26 12:53:50 [config.py:2434] Chunked prefill is enabled with max_num_batched_tokens=8192.
+Loading subgraphs...
+Resolving data files: 100%|████████████████████████████████████████████████████████████████████████████████████| 22/22 [00:00<00:00, 95.35it/s]
+Resolving data files: 100%|█████████████████████████████████████████████████████████████████████████████████| 22/22 [00:00<00:00, 49134.55it/s]
+Adding subgraphs to data...
+0it [00:00, ?it/s]
+Adding good triplets from ROG...
+0it [00:00, ?it/s]
+Adding scored triplets...
+0it [00:00, ?it/s]
+Triplets not found for 0 questions
+Generating prompts...
+Starting inference...
+0it [00:00, ?it/s]
+==================================================
+==================================================
+Evaluating on subset: True
+Results:
+Traceback (most recent call last):
+  File "/home/elicer/subgraphRAG/reason/main.py", line 167, in <module>
+    main()
+  File "/home/elicer/subgraphRAG/reason/main.py", line 162, in main
+    eval_all(final_pred_file_path, run, subset=True, eval_hops=hop)
+  File "/home/elicer/subgraphRAG/reason/main.py", line 62, in eval_all
+    hit1, f1, prec, recall, em, tw, mi_f1, mi_prec, mi_recall, total_cnt, no_ans_cnt, no_ans_ratio, hal_score, stats = eval_results_corrected(str(pred_file_path), cal_f1=True, subset=subset, split=split, eval_hops=eval_hops)
+  File "/home/elicer/subgraphRAG/reason/metrics/evaluate_results_corrected.py", line 268, in eval_results
+    dataset_name, samples_to_eval_path = _detect_dataset_and_samples_path(predict_file)
+  File "/home/elicer/subgraphRAG/reason/metrics/evaluate_results_corrected.py", line 245, in _detect_dataset_and_samples_path
+    raise FileNotFoundError(
+FileNotFoundError: [MetaQA] Could not find scored_triples file for 3-hop. Checked: ['./scored_triples/metaqa_3hop_240912_unidir_test.pth', './scored_triples/metaqa_3hop_test.pth', '']. Set METAQA_SCORED_TRIPLES or place the file accordingly.
+Traceback (most recent call last):
+  File "/home/elicer/subgraphRAG/reason/main.py", line 167, in <module>
+    main()
+  File "/home/elicer/subgraphRAG/reason/main.py", line 162, in main
+    eval_all(final_pred_file_path, run, subset=True, eval_hops=hop)
+  File "/home/elicer/subgraphRAG/reason/main.py", line 62, in eval_all
+    hit1, f1, prec, recall, em, tw, mi_f1, mi_prec, mi_recall, total_cnt, no_ans_cnt, no_ans_ratio, hal_score, stats = eval_results_corrected(str(pred_file_path), cal_f1=True, subset=subset, split=split, eval_hops=eval_hops)
+  File "/home/elicer/subgraphRAG/reason/metrics/evaluate_results_corrected.py", line 268, in eval_results
+    dataset_name, samples_to_eval_path = _detect_dataset_and_samples_path(predict_file)
+  File "/home/elicer/subgraphRAG/reason/metrics/evaluate_results_corrected.py", line 245, in _detect_dataset_and_samples_path
+    raise FileNotFoundError(
+FileNotFoundError: [MetaQA] Could not find scored_triples file for 3-hop. Checked: ['./scored_triples/metaqa_3hop_240912_unidir_test.pth', './scored_triples/metaqa_3hop_test.pth', '']. Set METAQA_SCORED_TRIPLES or place the file accordingly.

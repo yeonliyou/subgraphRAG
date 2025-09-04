@@ -1,0 +1,68 @@
+INFO 08-26 12:24:43 [config.py:1604] Using max model len 131072
+INFO 08-26 12:24:43 [config.py:2434] Chunked prefill is enabled with max_num_batched_tokens=8192.
+Loading subgraphs...
+README.md: 1.03kB [00:00, 21.5kB/s]
+Resolving data files: 100%|███████████████████████████████████| 22/22 [00:00<00:00, 36.03it/s]
+Resolving data files: 100%|████████████████████████████████| 22/22 [00:00<00:00, 49905.19it/s]
+Adding subgraphs to data...
+0it [00:00, ?it/s]
+Adding good triplets from ROG...
+0it [00:00, ?it/s]
+Adding scored triplets...
+0it [00:00, ?it/s]
+Triplets not found for 0 questions
+Generating prompts...
+Starting inference...
+0it [00:00, ?it/s]
+==================================================
+==================================================
+Evaluating on subset: True
+Results:
+Loading subgraphs...
+Resolving data files: 100%|███████████████████████████████| 22/22 [00:00<00:00, 110508.61it/s]
+Resolving data files: 100%|████████████████████████████████| 22/22 [00:00<00:00, 48260.82it/s]
+Adding subgraphs to data...
+0it [00:00, ?it/s]
+Adding good triplets from ROG...
+0it [00:00, ?it/s]
+Adding scored triplets...
+Traceback (most recent call last):
+  File "/home/elicer/subgraphRAG/reason/main.py", line 166, in <module>
+    main()
+  File "/home/elicer/subgraphRAG/reason/main.py", line 161, in main
+    eval_all(final_pred_file_path, run, subset=True)
+  File "/home/elicer/subgraphRAG/reason/main.py", line 62, in eval_all
+    hit1, f1, prec, recall, em, tw, mi_f1, mi_prec, mi_recall, total_cnt, no_ans_cnt, no_ans_ratio, hal_score, stats = eval_results_corrected(str(pred_file_path), cal_f1=True, subset=subset, split=split, eval_hops=eval_hops)
+  File "/home/elicer/subgraphRAG/reason/metrics/evaluate_results_corrected.py", line 267, in eval_results
+    triplets = get_data(dataset_name, pred_file_path, samples_to_eval_path, 'test', prompt_mode)
+  File "/home/elicer/subgraphRAG/reason/preprocess/prepare_data.py", line 130, in get_data
+    data = add_scored_triplets(data, score_dict_path, prompt_mode)
+  File "/home/elicer/subgraphRAG/reason/preprocess/prepare_data.py", line 74, in add_scored_triplets
+    triple_score_dict = torch.load(score_dict_path, weights_only=False)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/torch/serialization.py", line 1479, in load
+    with _open_file_like(f, "rb") as opened_file:
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/torch/serialization.py", line 759, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/torch/serialization.py", line 740, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: './scored_triples/metaqa_3hop_240912_unidir_test.pth'
+Traceback (most recent call last):
+  File "/home/elicer/subgraphRAG/reason/main.py", line 166, in <module>
+    main()
+  File "/home/elicer/subgraphRAG/reason/main.py", line 161, in main
+    eval_all(final_pred_file_path, run, subset=True)
+  File "/home/elicer/subgraphRAG/reason/main.py", line 62, in eval_all
+    hit1, f1, prec, recall, em, tw, mi_f1, mi_prec, mi_recall, total_cnt, no_ans_cnt, no_ans_ratio, hal_score, stats = eval_results_corrected(str(pred_file_path), cal_f1=True, subset=subset, split=split, eval_hops=eval_hops)
+  File "/home/elicer/subgraphRAG/reason/metrics/evaluate_results_corrected.py", line 267, in eval_results
+    triplets = get_data(dataset_name, pred_file_path, samples_to_eval_path, 'test', prompt_mode)
+  File "/home/elicer/subgraphRAG/reason/preprocess/prepare_data.py", line 130, in get_data
+    data = add_scored_triplets(data, score_dict_path, prompt_mode)
+  File "/home/elicer/subgraphRAG/reason/preprocess/prepare_data.py", line 74, in add_scored_triplets
+    triple_score_dict = torch.load(score_dict_path, weights_only=False)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/torch/serialization.py", line 1479, in load
+    with _open_file_like(f, "rb") as opened_file:
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/torch/serialization.py", line 759, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/torch/serialization.py", line 740, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: './scored_triples/metaqa_3hop_240912_unidir_test.pth'

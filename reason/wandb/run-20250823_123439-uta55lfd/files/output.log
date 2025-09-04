@@ -1,0 +1,62 @@
+ERROR 08-23 12:34:43 [config.py:133] Error retrieving file list: 401 Client Error: Unauthorized for url: https://huggingface.co/api/models/meta-llama/Meta-Llama-3.1-8B-Instruct/tree/main?recursive=True&expand=False (Request ID: Root=1-68a9b562-69aff8827ff0cc367e3c92ab;9772d468-1076-420d-b25a-f7f5b468db21)
+ERROR 08-23 12:34:43 [config.py:133]
+ERROR 08-23 12:34:43 [config.py:133] Invalid credentials in Authorization header, retrying 1 of 2
+ERROR 08-23 12:34:45 [config.py:131] Error retrieving file list: 401 Client Error: Unauthorized for url: https://huggingface.co/api/models/meta-llama/Meta-Llama-3.1-8B-Instruct/tree/main?recursive=True&expand=False (Request ID: Root=1-68a9b565-48f517a628f66e543d38dc26;a9023cfc-6994-4b23-a7e2-6ac88afa8cc4)
+ERROR 08-23 12:34:45 [config.py:131]
+ERROR 08-23 12:34:45 [config.py:131] Invalid credentials in Authorization header
+Traceback (most recent call last):
+  File "/home/elicer/subgraphRAG/reason/main.py", line 164, in <module>
+    main()
+  File "/home/elicer/subgraphRAG/reason/main.py", line 139, in main
+    llm = llm_init(model_name, tensor_parallel_size, max_seq_len_to_capture, max_tokens, seed, temperature, frequency_penalty)
+  File "/home/elicer/subgraphRAG/reason/llm_utils.py", line 12, in llm_init
+    client = LLM(model=model_name, tensor_parallel_size=tensor_parallel_size, max_seq_len_to_capture=max_seq_len_to_capture)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 273, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/engine/llm_engine.py", line 490, in from_engine_args
+    vllm_config = engine_args.create_engine_config(usage_context)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/engine/arg_utils.py", line 1004, in create_engine_config
+    model_config = self.create_model_config()
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/engine/arg_utils.py", line 872, in create_model_config
+    return ModelConfig(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/pydantic/_internal/_dataclasses.py", line 123, in __init__
+    s.__pydantic_validator__.validate_python(ArgsKwargs(args, kwargs), self_instance=s)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for ModelConfig
+  Value error, Invalid repository ID or local directory specified: 'meta-llama/Meta-Llama-3.1-8B-Instruct'.
+Please verify the following requirements:
+1. Provide a valid Hugging Face repository ID.
+2. Specify a local directory that contains a recognized configuration file.
+   - For Hugging Face models: ensure the presence of a 'config.json'.
+   - For Mistral models: ensure the presence of a 'params.json'.
+3. For GGUF: pass the local path of the GGUF checkpoint.
+   Loading GGUF from a remote repo directly is not yet supported.
+ [type=value_error, input_value=ArgsKwargs((), {'model': ...attention_dtype': None}), input_type=ArgsKwargs]
+    For further information visit https://errors.pydantic.dev/2.11/v/value_error
+Traceback (most recent call last):
+  File "/home/elicer/subgraphRAG/reason/main.py", line 164, in <module>
+    main()
+  File "/home/elicer/subgraphRAG/reason/main.py", line 139, in main
+    llm = llm_init(model_name, tensor_parallel_size, max_seq_len_to_capture, max_tokens, seed, temperature, frequency_penalty)
+  File "/home/elicer/subgraphRAG/reason/llm_utils.py", line 12, in llm_init
+    client = LLM(model=model_name, tensor_parallel_size=tensor_parallel_size, max_seq_len_to_capture=max_seq_len_to_capture)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 273, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/engine/llm_engine.py", line 490, in from_engine_args
+    vllm_config = engine_args.create_engine_config(usage_context)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/engine/arg_utils.py", line 1004, in create_engine_config
+    model_config = self.create_model_config()
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/engine/arg_utils.py", line 872, in create_model_config
+    return ModelConfig(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/pydantic/_internal/_dataclasses.py", line 123, in __init__
+    s.__pydantic_validator__.validate_python(ArgsKwargs(args, kwargs), self_instance=s)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for ModelConfig
+  Value error, Invalid repository ID or local directory specified: 'meta-llama/Meta-Llama-3.1-8B-Instruct'.
+Please verify the following requirements:
+1. Provide a valid Hugging Face repository ID.
+2. Specify a local directory that contains a recognized configuration file.
+   - For Hugging Face models: ensure the presence of a 'config.json'.
+   - For Mistral models: ensure the presence of a 'params.json'.
+3. For GGUF: pass the local path of the GGUF checkpoint.
+   Loading GGUF from a remote repo directly is not yet supported.
+ [type=value_error, input_value=ArgsKwargs((), {'model': ...attention_dtype': None}), input_type=ArgsKwargs]
+    For further information visit https://errors.pydantic.dev/2.11/v/value_error

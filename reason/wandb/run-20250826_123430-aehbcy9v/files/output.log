@@ -1,0 +1,39 @@
+INFO 08-26 12:34:40 [config.py:1604] Using max model len 131072
+INFO 08-26 12:34:41 [config.py:2434] Chunked prefill is enabled with max_num_batched_tokens=8192.
+Loading subgraphs...
+Resolving data files: 100%|████████████████████████████████████████████████████████████████████████████████████| 22/22 [00:00<00:00, 89.93it/s]
+Resolving data files: 100%|█████████████████████████████████████████████████████████████████████████████████| 22/22 [00:00<00:00, 47296.10it/s]
+Adding subgraphs to data...
+0it [00:00, ?it/s]
+Adding good triplets from ROG...
+0it [00:00, ?it/s]
+Adding scored triplets...
+0it [00:00, ?it/s]
+Triplets not found for 0 questions
+Generating prompts...
+Starting inference...
+0it [00:00, ?it/s]
+==================================================
+==================================================
+Evaluating on subset: True
+Results:
+Traceback (most recent call last):
+  File "/home/elicer/subgraphRAG/reason/main.py", line 166, in <module>
+    main()
+  File "/home/elicer/subgraphRAG/reason/main.py", line 161, in main
+    eval_all(final_pred_file_path, run, subset=True)
+  File "/home/elicer/subgraphRAG/reason/main.py", line 62, in eval_all
+    hit1, f1, prec, recall, em, tw, mi_f1, mi_prec, mi_recall, total_cnt, no_ans_cnt, no_ans_ratio, hal_score, stats = eval_results_corrected(str(pred_file_path), cal_f1=True, subset=subset, split=split, eval_hops=eval_hops)
+  File "/home/elicer/subgraphRAG/reason/metrics/evaluate_results_corrected.py", line 261, in eval_results
+    raise NotImplementedError
+NotImplementedError
+Traceback (most recent call last):
+  File "/home/elicer/subgraphRAG/reason/main.py", line 166, in <module>
+    main()
+  File "/home/elicer/subgraphRAG/reason/main.py", line 161, in main
+    eval_all(final_pred_file_path, run, subset=True)
+  File "/home/elicer/subgraphRAG/reason/main.py", line 62, in eval_all
+    hit1, f1, prec, recall, em, tw, mi_f1, mi_prec, mi_recall, total_cnt, no_ans_cnt, no_ans_ratio, hal_score, stats = eval_results_corrected(str(pred_file_path), cal_f1=True, subset=subset, split=split, eval_hops=eval_hops)
+  File "/home/elicer/subgraphRAG/reason/metrics/evaluate_results_corrected.py", line 261, in eval_results
+    raise NotImplementedError
+NotImplementedError

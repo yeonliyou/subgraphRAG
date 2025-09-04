@@ -1,0 +1,109 @@
+INFO 08-26 17:57:09 [config.py:1604] Using max model len 131072
+INFO 08-26 17:57:10 [config.py:2434] Chunked prefill is enabled with max_num_batched_tokens=8192.
+1427 questions loaded from retrieval pth: retrieval_result.pth
+Adding scored triplets...
+Triplets not found for 1427 questions; Questions w/o text: 0; w/o answers: 1427
+[align] attached triples to 1427 / 1427 samples; misses=0; no_ground_truth=0
+Generating prompts...
+
+===== Sample 0 =====
+Q: who starred in the films whose directors also directed Saw III
+GT: ['Mia Kirshner', 'Terrance Zdunich', 'Shawnee Smith', 'Briana Evigan', 'Tobin Bell', 'Stephen Moyer', 'Jessica Lowndes', 'Costas Mandylor', 'Donnie Wahlberg', 'Erik Knudsen', 'Scott Patterson', 'Betsy Russell']
+Triples count: 500
+One triple: ('Saw III', 'directed_by', 'Darren Lynn Bousman', 0.2937529683113098)
+Prompt preview:
+ Based on the triplets retrieved from a knowledge graph, please answer the question. Please return formatted answers as a list, each prefixed with "ans:".
+
+Triplets:
+(Saw III,directed_by,Darren Lynn Bousman)
+(Saw III,written_by,James Wan)
+(Saw III,has_genre,Horror)
+(Saw III,written_by,Leigh Whannell)
+(Saw III,starred_actors,Tobin Bell)
+(Saw III,starred_actors,Shawnee Smith)
+(Saw III,starred_actors,Angus Macfadyen)
+(Saw III,release_year,2006)
+(Saw III,starred_actors,Bahar Soomekh)
+(2012,release_year,2009)
+(Saw III,has_tags,franchise)
+(Saw III,has_tags,darren lynn bousman)
+(The Guardian,has_genre
+
+===== Sample 1 =====
+Q: what are the primary languages in the movies directed by the director of Stay Tuned
+GT: ['English']
+Triples count: 500
+One triple: ('Stay Tuned', 'has_genre', 'Comedy', 0.5283422470092773)
+Prompt preview:
+ Based on the triplets retrieved from a knowledge graph, please answer the question. Please return formatted answers as a list, each prefixed with "ans:".
+
+Triplets:
+(Stay Tuned,has_genre,Comedy)
+(Stay Tuned,has_genre,Fantasy)
+(Stay Tuned,directed_by,Peter Hyams)
+(Stay Tuned,starred_actors,John Ritter)
+(Stay Tuned,starred_actors,Jeffrey Jones)
+(Stay Tuned,release_year,1992)
+(1981,has_genre,Drama)
+(2010,directed_by,Peter Hyams)
+(1981,has_genre,Comedy)
+(2010,written_by,Peter Hyams)
+(Stay Tuned,starred_actors,Pam Dawber)
+(Stay Tuned,has_tags,john ritter)
+(Stay Tuned,has_tags,peter hyams)
+(Who's Ha
+Starting inference...
+  2%|█▊                                                                                  | 30/1427 [02:24<1:52:14,  4.82s/it]
+INFO 08-26 17:57:56 [chat_utils.py:473] Detected the chat template content format to be 'string'. You can set `--chat-template-content-format` to override this.
+Traceback (most recent call last):
+  File "/home/elicer/subgraphRAG/reason/main.py", line 299, in <module>
+    main()
+  File "/home/elicer/subgraphRAG/reason/main.py", line 282, in main
+    #         res = llm_inf_all(llm, each_qa, llm_mode, model_name)
+  File "/home/elicer/subgraphRAG/reason/llm_utils.py", line 81, in llm_inf_all
+    return llm_inf(llm, each_qa, llm_mode, model_name)
+  File "/home/elicer/subgraphRAG/reason/llm_utils.py", line 42, in llm_inf
+    outputs = get_outputs(llm(messages=conversation), model_name)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 937, in chat
+    return self.generate(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/utils/__init__.py", line 1514, in inner
+    return fn(*args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 505, in generate
+    outputs = self._run_engine(use_tqdm=use_tqdm)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 1701, in _run_engine
+    step_outputs = self.llm_engine.step()
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/v1/engine/llm_engine.py", line 237, in step
+    outputs = self.engine_core.get_output()
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/v1/engine/core_client.py", line 580, in get_output
+    outputs = self.outputs_queue.get()
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/queue.py", line 171, in get
+    self.not_empty.wait()
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/threading.py", line 320, in wait
+    waiter.acquire()
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/elicer/subgraphRAG/reason/main.py", line 299, in <module>
+    main()
+  File "/home/elicer/subgraphRAG/reason/main.py", line 282, in main
+    #         res = llm_inf_all(llm, each_qa, llm_mode, model_name)
+  File "/home/elicer/subgraphRAG/reason/llm_utils.py", line 81, in llm_inf_all
+    return llm_inf(llm, each_qa, llm_mode, model_name)
+  File "/home/elicer/subgraphRAG/reason/llm_utils.py", line 42, in llm_inf
+    outputs = get_outputs(llm(messages=conversation), model_name)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 937, in chat
+    return self.generate(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/utils/__init__.py", line 1514, in inner
+    return fn(*args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 505, in generate
+    outputs = self._run_engine(use_tqdm=use_tqdm)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 1701, in _run_engine
+    step_outputs = self.llm_engine.step()
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/v1/engine/llm_engine.py", line 237, in step
+    outputs = self.engine_core.get_output()
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/v1/engine/core_client.py", line 580, in get_output
+    outputs = self.outputs_queue.get()
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/queue.py", line 171, in get
+    self.not_empty.wait()
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/threading.py", line 320, in wait
+    waiter.acquire()
+KeyboardInterrupt

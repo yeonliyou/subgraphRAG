@@ -1,0 +1,21 @@
+INFO 08-26 15:32:29 [config.py:1604] Using max model len 131072
+INFO 08-26 15:32:29 [config.py:2434] Chunked prefill is enabled with max_num_batched_tokens=8192.
+1427 questions loaded from retrieval pth: retrieval_result.pth
+Adding scored triplets...
+Triplets not found for 1427 questions; Questions w/o text: 0; w/o answers: 1427
+Generating prompts...
+
+===== Sample 0 =====
+Q: who starred in the films whose directors also directed Saw III
+Traceback (most recent call last):
+  File "/home/elicer/subgraphRAG/reason/main.py", line 185, in <module>
+    main()
+  File "/home/elicer/subgraphRAG/reason/main.py", line 161, in main
+    print("Prompt:\n", ex.get("prompt")[:1000])  # 앞부분 1000자만 잘라서
+TypeError: 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "/home/elicer/subgraphRAG/reason/main.py", line 185, in <module>
+    main()
+  File "/home/elicer/subgraphRAG/reason/main.py", line 161, in main
+    print("Prompt:\n", ex.get("prompt")[:1000])  # 앞부분 1000자만 잘라서
+TypeError: 'NoneType' object is not subscriptable

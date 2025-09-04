@@ -1,0 +1,48 @@
+{
+  "os": "Linux-5.15.0-97-generic-x86_64-with-glibc2.35",
+  "python": "CPython 3.10.14",
+  "startedAt": "2025-08-23T14:04:38.421297Z",
+  "args": [
+    "-d",
+    "metaqa-3hop",
+    "--prompt_mode",
+    "scored_100",
+    "-p",
+    "/home/elicer/subgraphRAG/retrieve/metaqa-3hop_Aug14-03:19:56/retrieval_result.pth"
+  ],
+  "program": "/home/elicer/subgraphRAG/reason/main.py",
+  "codePath": "reason/main.py",
+  "codePathLocal": "main.py",
+  "git": {
+    "remote": "https://github.com/yeonliyou/subgraphRAG.git",
+    "commit": "28718a696dce2fb092090603475b5dfbb6fe4cd1"
+  },
+  "email": "yeonliyou@naver.com",
+  "root": "/home/elicer/subgraphRAG/reason",
+  "host": "ebd1e44084f1",
+  "executable": "/home/elicer/miniconda3/envs/reasoner/bin/python",
+  "cpu_count": 32,
+  "cpu_count_logical": 16,
+  "gpu": "NVIDIA A100 80GB PCIe",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "137371844608",
+      "used": "121832255488"
+    }
+  },
+  "memory": {
+    "total": "206158430208"
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA A100 80GB PCIe",
+      "memoryTotal": "85899345920",
+      "cudaCores": 6912,
+      "architecture": "Ampere",
+      "uuid": "GPU-98217925-3aa5-97f0-34ae-18de17af0029"
+    }
+  ],
+  "cudaVersion": "12.4",
+  "writerId": "lxfsxvj5e1byhzuq0h8ir0kslep4h9p8"
+}

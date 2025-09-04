@@ -1,0 +1,94 @@
+_wandb:
+    value:
+        cli_version: 0.21.1
+        e:
+            wbsdev1n4j49hpb76wnbss4nmehurfgq:
+                args:
+                    - -d
+                    - metaqa-3hop
+                    - --prompt_mode
+                    - scored_100
+                    - -p
+                    - /home/elicer/subgraphRAG/retrieve/metaqa-3hop_Aug14-03:19:56/retrieval_result.pth
+                codePath: reason/main.py
+                codePathLocal: main.py
+                cpu_count: 32
+                cpu_count_logical: 16
+                cudaVersion: "12.2"
+                disk:
+                    /:
+                        total: "137371844608"
+                        used: "95813955584"
+                email: yeonliyou@naver.com
+                executable: /home/elicer/miniconda3/envs/reasoner/bin/python
+                git:
+                    commit: 28718a696dce2fb092090603475b5dfbb6fe4cd1
+                    remote: https://github.com/yeonliyou/subgraphRAG.git
+                gpu: NVIDIA A100 80GB PCIe
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "85899345920"
+                      name: NVIDIA A100 80GB PCIe
+                      uuid: GPU-bbdcaf6c-94dd-0a4f-4172-4e85db8b088b
+                host: 4178bf922996
+                memory:
+                    total: "206158430208"
+                os: Linux-5.15.0-125-generic-x86_64-with-glibc2.35
+                program: /home/elicer/subgraphRAG/reason/main.py
+                python: CPython 3.10.14
+                root: /home/elicer/subgraphRAG/reason
+                startedAt: "2025-08-21T00:31:40.040934Z"
+                writerId: wbsdev1n4j49hpb76wnbss4nmehurfgq
+        m: []
+        python_version: 3.10.14
+        t:
+            "1":
+                - 1
+                - 11
+                - 41
+                - 49
+                - 51
+                - 95
+            "2":
+                - 1
+                - 11
+                - 41
+                - 49
+                - 51
+                - 95
+            "3":
+                - 13
+                - 16
+            "4": 3.10.14
+            "5": 0.21.1
+            "6": 4.55.2
+            "12": 0.21.1
+            "13": linux-x86_64
+dataset_name:
+    value: metaqa-3hop
+frequency_penalty:
+    value: 0.16
+llm_mode:
+    value: sys_icl_dc
+max_seq_len_to_capture:
+    value: 16384
+max_tokens:
+    value: 4000
+model_name:
+    value: meta-llama/Meta-Llama-3.1-8B-Instruct
+prompt_mode:
+    value: scored_100
+score_dict_path:
+    value: /home/elicer/subgraphRAG/retrieve/metaqa-3hop_Aug14-03:19:56/retrieval_result.pth
+seed:
+    value: 0
+split:
+    value: test
+temperature:
+    value: 0
+tensor_parallel_size:
+    value: 1
+thres:
+    value: 0

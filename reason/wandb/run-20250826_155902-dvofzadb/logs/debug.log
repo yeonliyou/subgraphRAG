@@ -1,0 +1,913 @@
+2025-08-26 15:59:02,833 INFO    MainThread:16241 [wandb_setup.py:_flush():80] Current SDK version is 0.21.1
+2025-08-26 15:59:02,833 INFO    MainThread:16241 [wandb_setup.py:_flush():80] Configure stats pid to 16241
+2025-08-26 15:59:02,833 INFO    MainThread:16241 [wandb_setup.py:_flush():80] Loading settings from /home/elicer/.config/wandb/settings
+2025-08-26 15:59:02,833 INFO    MainThread:16241 [wandb_setup.py:_flush():80] Loading settings from /home/elicer/subgraphRAG/reason/wandb/settings
+2025-08-26 15:59:02,833 INFO    MainThread:16241 [wandb_setup.py:_flush():80] Loading settings from environment variables
+2025-08-26 15:59:02,833 INFO    MainThread:16241 [wandb_init.py:setup_run_log_directory():703] Logging user logs to /home/elicer/subgraphRAG/reason/wandb/run-20250826_155902-dvofzadb/logs/debug.log
+2025-08-26 15:59:02,833 INFO    MainThread:16241 [wandb_init.py:setup_run_log_directory():704] Logging internal logs to /home/elicer/subgraphRAG/reason/wandb/run-20250826_155902-dvofzadb/logs/debug-internal.log
+2025-08-26 15:59:02,834 INFO    MainThread:16241 [wandb_init.py:init():830] calling init triggers
+2025-08-26 15:59:02,834 INFO    MainThread:16241 [wandb_init.py:init():835] wandb.init called with sweep_config: {}
+config: {'dataset_name': 'metaqa-3hop', 'prompt_mode': 'scored_100', 'score_dict_path': '/home/elicer/subgraphRAG/retrieve/metaqa-3hop_Aug14-03:19:56/retrieval_result.pth', 'llm_mode': 'sys_icl_dc', 'model_name': 'meta-llama/Meta-Llama-3.1-8B-Instruct', 'split': 'test', 'tensor_parallel_size': 1, 'max_seq_len_to_capture': 16384, 'max_tokens': 4000, 'seed': 0, 'temperature': 0, 'frequency_penalty': 0.16, 'thres': 0.0, '_wandb': {}}
+2025-08-26 15:59:02,834 INFO    MainThread:16241 [wandb_init.py:init():871] starting backend
+2025-08-26 15:59:03,039 INFO    MainThread:16241 [wandb_init.py:init():874] sending inform_init request
+2025-08-26 15:59:03,041 INFO    MainThread:16241 [wandb_init.py:init():882] backend started and connected
+2025-08-26 15:59:03,042 INFO    MainThread:16241 [wandb_init.py:init():953] updated telemetry
+2025-08-26 15:59:03,047 INFO    MainThread:16241 [wandb_init.py:init():977] communicating run to backend with 90.0 second timeout
+2025-08-26 15:59:03,824 INFO    MainThread:16241 [wandb_init.py:init():1029] starting run threads in backend
+2025-08-26 15:59:03,998 INFO    MainThread:16241 [wandb_run.py:_console_start():2494] atexit reg
+2025-08-26 15:59:03,998 INFO    MainThread:16241 [wandb_run.py:_redirect():2342] redirect: wrap_raw
+2025-08-26 15:59:03,998 INFO    MainThread:16241 [wandb_run.py:_redirect():2411] Wrapping output streams.
+2025-08-26 15:59:03,998 INFO    MainThread:16241 [wandb_run.py:_redirect():2434] Redirects installed.
+2025-08-26 15:59:04,000 INFO    MainThread:16241 [wandb_init.py:init():1075] run started, returning control to user process
+2025-08-26 17:46:32,401 INFO    MsgRouterThr:16241 [mailbox.py:close():129] [no run ID] Closing mailbox, abandoning 1 handles.
+2025-08-26 17:56:26,830 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,833 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,834 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,835 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,836 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,837 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,838 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,838 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,839 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,840 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,841 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,841 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,842 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,843 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,844 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,845 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,845 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,846 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,847 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,848 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,849 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,850 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,851 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,852 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,853 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,853 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,855 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,856 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,856 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,857 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,858 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,858 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-08-26 17:56:26,859 ERROR   MainThread:16241 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe

@@ -1,0 +1,18 @@
+INFO 08-26 12:22:19 [config.py:1604] Using max model len 131072
+INFO 08-26 12:22:21 [config.py:2434] Chunked prefill is enabled with max_num_batched_tokens=8192.
+Traceback (most recent call last):
+  File "/home/elicer/subgraphRAG/reason/main.py", line 166, in <module>
+    main()
+  File "/home/elicer/subgraphRAG/reason/main.py", line 142, in main
+    data = get_data(dataset_name, pred_file_path, score_dict_path, split, prompt_mode)
+  File "/home/elicer/subgraphRAG/reason/preprocess/prepare_data.py", line 114, in get_data
+    with open(pred_file_path, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: './results/KGQA/metaqa-3hop/RoG/test/results_gen_rule_path_RoG-metaqa-3hop_RoG_test_predictions_3_False_jsonl/predictions.jsonl'
+Traceback (most recent call last):
+  File "/home/elicer/subgraphRAG/reason/main.py", line 166, in <module>
+    main()
+  File "/home/elicer/subgraphRAG/reason/main.py", line 142, in main
+    data = get_data(dataset_name, pred_file_path, score_dict_path, split, prompt_mode)
+  File "/home/elicer/subgraphRAG/reason/preprocess/prepare_data.py", line 114, in get_data
+    with open(pred_file_path, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: './results/KGQA/metaqa-3hop/RoG/test/results_gen_rule_path_RoG-metaqa-3hop_RoG_test_predictions_3_False_jsonl/predictions.jsonl'

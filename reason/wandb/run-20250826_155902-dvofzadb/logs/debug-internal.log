@@ -1,0 +1,7 @@
+{"time":"2025-08-26T15:59:03.043615055Z","level":"INFO","msg":"stream: starting","core version":"0.21.1"}
+{"time":"2025-08-26T15:59:03.506144725Z","level":"INFO","msg":"stream: created new stream","id":"dvofzadb"}
+{"time":"2025-08-26T15:59:03.506209667Z","level":"INFO","msg":"stream: started","id":"dvofzadb"}
+{"time":"2025-08-26T15:59:03.506224532Z","level":"INFO","msg":"writer: started","stream_id":"dvofzadb"}
+{"time":"2025-08-26T15:59:03.506240766Z","level":"INFO","msg":"sender: started","stream_id":"dvofzadb"}
+{"time":"2025-08-26T15:59:03.506265128Z","level":"INFO","msg":"handler: started","stream_id":"dvofzadb"}
+{"time":"2025-08-26T17:46:32.401913587Z","level":"INFO","msg":"stream: closing","id":"dvofzadb"}

@@ -1,0 +1,58 @@
+INFO 08-26 12:27:49 [config.py:1604] Using max model len 131072
+INFO 08-26 12:27:49 [config.py:2434] Chunked prefill is enabled with max_num_batched_tokens=8192.
+Traceback (most recent call last):
+  File "/home/elicer/subgraphRAG/reason/main.py", line 166, in <module>
+    main()
+  File "/home/elicer/subgraphRAG/reason/main.py", line 141, in main
+    llm = llm_init(model_name, tensor_parallel_size, max_seq_len_to_capture, max_tokens, seed, temperature, frequency_penalty)
+  File "/home/elicer/subgraphRAG/reason/llm_utils.py", line 12, in llm_init
+    client = LLM(model=model_name, tensor_parallel_size=tensor_parallel_size, max_seq_len_to_capture=max_seq_len_to_capture)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 273, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/engine/llm_engine.py", line 497, in from_engine_args
+    return engine_cls.from_vllm_config(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/v1/engine/llm_engine.py", line 126, in from_vllm_config
+    return cls(vllm_config=vllm_config,
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/v1/engine/llm_engine.py", line 103, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/v1/engine/core_client.py", line 77, in make_client
+    return SyncMPClient(vllm_config, executor_class, log_stats)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/v1/engine/core_client.py", line 514, in __init__
+    super().__init__(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/v1/engine/core_client.py", line 408, in __init__
+    with launch_core_engines(vllm_config, executor_class,
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/contextlib.py", line 142, in __exit__
+    next(self.gen)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/v1/engine/utils.py", line 697, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/v1/engine/utils.py", line 750, in wait_for_engine_startup
+    raise RuntimeError("Engine core initialization failed. "
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+Traceback (most recent call last):
+  File "/home/elicer/subgraphRAG/reason/main.py", line 166, in <module>
+    main()
+  File "/home/elicer/subgraphRAG/reason/main.py", line 141, in main
+    llm = llm_init(model_name, tensor_parallel_size, max_seq_len_to_capture, max_tokens, seed, temperature, frequency_penalty)
+  File "/home/elicer/subgraphRAG/reason/llm_utils.py", line 12, in llm_init
+    client = LLM(model=model_name, tensor_parallel_size=tensor_parallel_size, max_seq_len_to_capture=max_seq_len_to_capture)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 273, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/engine/llm_engine.py", line 497, in from_engine_args
+    return engine_cls.from_vllm_config(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/v1/engine/llm_engine.py", line 126, in from_vllm_config
+    return cls(vllm_config=vllm_config,
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/v1/engine/llm_engine.py", line 103, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/v1/engine/core_client.py", line 77, in make_client
+    return SyncMPClient(vllm_config, executor_class, log_stats)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/v1/engine/core_client.py", line 514, in __init__
+    super().__init__(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/v1/engine/core_client.py", line 408, in __init__
+    with launch_core_engines(vllm_config, executor_class,
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/contextlib.py", line 142, in __exit__
+    next(self.gen)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/v1/engine/utils.py", line 697, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/v1/engine/utils.py", line 750, in wait_for_engine_startup
+    raise RuntimeError("Engine core initialization failed. "
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}

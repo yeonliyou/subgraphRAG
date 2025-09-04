@@ -1,0 +1,83 @@
+INFO 08-26 15:59:12 [config.py:1604] Using max model len 131072
+INFO 08-26 15:59:12 [config.py:2434] Chunked prefill is enabled with max_num_batched_tokens=8192.
+1427 questions loaded from retrieval pth: retrieval_result.pth
+Adding scored triplets...
+Triplets not found for 1427 questions; Questions w/o text: 0; w/o answers: 1427
+[align] attached triples to 1427 / 1427 samples; misses=0; no_ground_truth=0
+Generating prompts...
+
+===== Sample 0 =====
+Q: who starred in the films whose directors also directed Saw III
+GT: ['Mia Kirshner', 'Terrance Zdunich', 'Shawnee Smith', 'Briana Evigan', 'Tobin Bell', 'Stephen Moyer', 'Jessica Lowndes', 'Costas Mandylor', 'Donnie Wahlberg', 'Erik Knudsen', 'Scott Patterson', 'Betsy Russell']
+Triples count: 500
+One triple: ('Saw III', 'directed_by', 'Darren Lynn Bousman', 0.2937529683113098)
+Prompt preview:
+ Based on the triplets retrieved from a knowledge graph, please answer the question. Please return formatted answers as a list, each prefixed with "ans:".
+
+Triplets:
+(Saw III,directed_by,Darren Lynn Bousman)
+(Saw III,written_by,James Wan)
+(Saw III,has_genre,Horror)
+(Saw III,written_by,Leigh Whannell)
+(Saw III,starred_actors,Tobin Bell)
+(Saw III,starred_actors,Shawnee Smith)
+(Saw III,starred_actors,Angus Macfadyen)
+(Saw III,release_year,2006)
+(Saw III,starred_actors,Bahar Soomekh)
+(2012,release_year,2009)
+(Saw III,has_tags,franchise)
+(Saw III,has_tags,darren lynn bousman)
+(The Guardian,has_genre
+
+===== Sample 1 =====
+Q: what are the primary languages in the movies directed by the director of Stay Tuned
+GT: ['English']
+Triples count: 500
+One triple: ('Stay Tuned', 'has_genre', 'Comedy', 0.5283422470092773)
+Prompt preview:
+ Based on the triplets retrieved from a knowledge graph, please answer the question. Please return formatted answers as a list, each prefixed with "ans:".
+
+Triplets:
+(Stay Tuned,has_genre,Comedy)
+(Stay Tuned,has_genre,Fantasy)
+(Stay Tuned,directed_by,Peter Hyams)
+(Stay Tuned,starred_actors,John Ritter)
+(Stay Tuned,starred_actors,Jeffrey Jones)
+(Stay Tuned,release_year,1992)
+(1981,has_genre,Drama)
+(2010,directed_by,Peter Hyams)
+(1981,has_genre,Comedy)
+(2010,written_by,Peter Hyams)
+(Stay Tuned,starred_actors,Pam Dawber)
+(Stay Tuned,has_tags,john ritter)
+(Stay Tuned,has_tags,peter hyams)
+(Who's Ha
+Starting inference...
+**************************************************
+Resuming from results/KGQA/metaqa-3hop/SubgraphRAG/Meta-Llama-3.1-8B-Instruct/scored_100-sys_icl_dc-0.16-thres_0.0-test-predictions-resume.jsonl
+Last processed item: test_739
+**************************************************
+100%|██████████████████████████████████████████████████████████████████████████████████| 1427/1427 [1:46:33<00:00,  4.58s/it]
+INFO 08-26 15:59:59 [chat_utils.py:473] Detected the chat template content format to be 'string'. You can set `--chat-template-content-format` to override this.
+==================================================
+==================================================
+Evaluating on subset: True
+Results:
+1427it [00:00, 25931.93it/s]
+Hit@1: 100.0, Macro F1: 16.11111111111111, Macro Precision: 100.0, Macro Recall: 8.881578947368421, Exact Match: 0.0, Totally Wrong: 0.0, Hal Score: 60.0
+Micro F1: 0.13793103448275862, Micro precision: 1.0, Micro Recall: 0.07407407407407407
+Total number of samples: 2, no answer samples: 0, ratio: 0.0
+Hit: 100.0
+==================================================
+==================================================
+==================================================
+==================================================
+Evaluating on subset: False
+Results:
+1427it [00:00, 26027.56it/s]
+Hit@1: 100.0, Macro F1: 16.11111111111111, Macro Precision: 100.0, Macro Recall: 8.881578947368421, Exact Match: 0.0, Totally Wrong: 0.0, Hal Score: 60.0
+Micro F1: 0.13793103448275862, Micro precision: 1.0, Micro Recall: 0.07407407407407407
+Total number of samples: 2, no answer samples: 0, ratio: 0.0
+Hit: 100.0
+==================================================
+==================================================

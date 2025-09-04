@@ -1,0 +1,29 @@
+INFO 08-26 13:06:39 [config.py:1604] Using max model len 131072
+INFO 08-26 13:06:40 [config.py:2434] Chunked prefill is enabled with max_num_batched_tokens=8192.
+Loading subgraphs...
+Resolving data files: 100%|████████████████████████████████████████████████████████████████████████████████████| 22/22 [00:00<00:00, 39.52it/s]
+Resolving data files: 100%|█████████████████████████████████████████████████████████████████████████████████| 22/22 [00:00<00:00, 37267.64it/s]
+Adding subgraphs to data...
+0it [00:00, ?it/s]
+Adding good triplets from ROG...
+0it [00:00, ?it/s]
+Adding scored triplets...
+0it [00:00, ?it/s]
+Triplets not found for 0 questions
+Generating prompts...
+Starting inference...
+0it [00:00, ?it/s]
+==================================================
+==================================================
+Evaluating on subset: True
+Results:
+0it [00:00, ?it/s]
+==================================================
+==================================================
+==================================================
+==================================================
+Evaluating on subset: False
+Results:
+0it [00:00, ?it/s]
+==================================================
+==================================================

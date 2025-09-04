@@ -1,0 +1,148 @@
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/huggingface_hub/utils/_http.py", line 409, in hf_raise_for_status
+    response.raise_for_status()
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 401 Client Error: Unauthorized for url: https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct/resolve/main/config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/transformers/utils/hub.py", line 479, in cached_files
+    hf_hub_download(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1010, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1117, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1658, in _raise_on_head_call_error
+    raise head_call_error
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1546, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1463, in get_hf_file_metadata
+    r = _request_wrapper(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 286, in _request_wrapper
+    response = _request_wrapper(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 310, in _request_wrapper
+    hf_raise_for_status(response)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/huggingface_hub/utils/_http.py", line 426, in hf_raise_for_status
+    raise _format(GatedRepoError, message, response) from e
+huggingface_hub.errors.GatedRepoError: 401 Client Error. (Request ID: Root=1-68a66894-0e3bc6164341e9e5152f2099;27fe3e23-545e-4950-afc8-bf8326a698db)
+
+Cannot access gated repo for url https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct/resolve/main/config.json.
+Access to model meta-llama/Llama-3.1-8B-Instruct is restricted. You must have access to it and be authenticated to access it. Please log in.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/elicer/subgraphRAG/reason/main.py", line 164, in <module>
+    main()
+  File "/home/elicer/subgraphRAG/reason/main.py", line 139, in main
+    llm = llm_init(model_name, tensor_parallel_size, max_seq_len_to_capture, max_tokens, seed, temperature, frequency_penalty)
+  File "/home/elicer/subgraphRAG/reason/llm_utils.py", line 12, in llm_init
+    client = LLM(model=model_name, tensor_parallel_size=tensor_parallel_size, max_seq_len_to_capture=max_seq_len_to_capture)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 273, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/engine/llm_engine.py", line 490, in from_engine_args
+    vllm_config = engine_args.create_engine_config(usage_context)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/engine/arg_utils.py", line 1004, in create_engine_config
+    model_config = self.create_model_config()
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/engine/arg_utils.py", line 872, in create_model_config
+    return ModelConfig(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/pydantic/_internal/_dataclasses.py", line 123, in __init__
+    s.__pydantic_validator__.validate_python(ArgsKwargs(args, kwargs), self_instance=s)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/config.py", line 544, in __post_init__
+    hf_config = get_config(self.hf_config_path or self.model,
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/transformers_utils/config.py", line 355, in get_config
+    config_dict, _ = PretrainedConfig.get_config_dict(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/transformers/configuration_utils.py", line 649, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/transformers/configuration_utils.py", line 708, in _get_config_dict
+    resolved_config_file = cached_file(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/transformers/utils/hub.py", line 321, in cached_file
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/transformers/utils/hub.py", line 543, in cached_files
+    raise OSError(
+OSError: You are trying to access a gated repo.
+Make sure to have access to it at https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct.
+401 Client Error. (Request ID: Root=1-68a66894-0e3bc6164341e9e5152f2099;27fe3e23-545e-4950-afc8-bf8326a698db)
+
+Cannot access gated repo for url https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct/resolve/main/config.json.
+Access to model meta-llama/Llama-3.1-8B-Instruct is restricted. You must have access to it and be authenticated to access it. Please log in.
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/huggingface_hub/utils/_http.py", line 409, in hf_raise_for_status
+    response.raise_for_status()
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 401 Client Error: Unauthorized for url: https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct/resolve/main/config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/transformers/utils/hub.py", line 479, in cached_files
+    hf_hub_download(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1010, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1117, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1658, in _raise_on_head_call_error
+    raise head_call_error
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1546, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1463, in get_hf_file_metadata
+    r = _request_wrapper(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 286, in _request_wrapper
+    response = _request_wrapper(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 310, in _request_wrapper
+    hf_raise_for_status(response)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/huggingface_hub/utils/_http.py", line 426, in hf_raise_for_status
+    raise _format(GatedRepoError, message, response) from e
+huggingface_hub.errors.GatedRepoError: 401 Client Error. (Request ID: Root=1-68a66894-0e3bc6164341e9e5152f2099;27fe3e23-545e-4950-afc8-bf8326a698db)
+
+Cannot access gated repo for url https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct/resolve/main/config.json.
+Access to model meta-llama/Llama-3.1-8B-Instruct is restricted. You must have access to it and be authenticated to access it. Please log in.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/elicer/subgraphRAG/reason/main.py", line 164, in <module>
+    main()
+  File "/home/elicer/subgraphRAG/reason/main.py", line 139, in main
+    llm = llm_init(model_name, tensor_parallel_size, max_seq_len_to_capture, max_tokens, seed, temperature, frequency_penalty)
+  File "/home/elicer/subgraphRAG/reason/llm_utils.py", line 12, in llm_init
+    client = LLM(model=model_name, tensor_parallel_size=tensor_parallel_size, max_seq_len_to_capture=max_seq_len_to_capture)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 273, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/engine/llm_engine.py", line 490, in from_engine_args
+    vllm_config = engine_args.create_engine_config(usage_context)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/engine/arg_utils.py", line 1004, in create_engine_config
+    model_config = self.create_model_config()
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/engine/arg_utils.py", line 872, in create_model_config
+    return ModelConfig(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/pydantic/_internal/_dataclasses.py", line 123, in __init__
+    s.__pydantic_validator__.validate_python(ArgsKwargs(args, kwargs), self_instance=s)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/config.py", line 544, in __post_init__
+    hf_config = get_config(self.hf_config_path or self.model,
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/vllm/transformers_utils/config.py", line 355, in get_config
+    config_dict, _ = PretrainedConfig.get_config_dict(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/transformers/configuration_utils.py", line 649, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/transformers/configuration_utils.py", line 708, in _get_config_dict
+    resolved_config_file = cached_file(
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/transformers/utils/hub.py", line 321, in cached_file
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+  File "/home/elicer/miniconda3/envs/reasoner/lib/python3.10/site-packages/transformers/utils/hub.py", line 543, in cached_files
+    raise OSError(
+OSError: You are trying to access a gated repo.
+Make sure to have access to it at https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct.
+401 Client Error. (Request ID: Root=1-68a66894-0e3bc6164341e9e5152f2099;27fe3e23-545e-4950-afc8-bf8326a698db)
+
+Cannot access gated repo for url https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct/resolve/main/config.json.
+Access to model meta-llama/Llama-3.1-8B-Instruct is restricted. You must have access to it and be authenticated to access it. Please log in.
